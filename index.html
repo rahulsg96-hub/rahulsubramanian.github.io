@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,6 +79,7 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:16px;
   }
   .nav-mark{
     display:flex;
@@ -90,6 +91,7 @@
     color:var(--ink);
     text-decoration:none;
     font-weight:500;
+    flex-shrink:0;
   }
   .nav-mark svg{ width:22px; height:22px; }
   nav.links{ display:flex; gap:28px; }
@@ -103,6 +105,7 @@
     position:relative;
     padding-bottom:4px;
     transition:color .2s ease;
+    white-space:nowrap;
   }
   nav.links a:hover{ color:var(--teal-dark); }
   nav.links a::after{
@@ -115,6 +118,38 @@
     transition:width .25s ease;
   }
   nav.links a:hover::after{ width:100%; }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-shrink:0;
+  }
+
+  .lang-switch{
+    display:flex;
+    border:1px solid var(--line);
+    border-radius:999px;
+    overflow:hidden;
+    font-family:var(--font-mono);
+    font-size:12px;
+    flex-shrink:0;
+  }
+  .lang-switch button{
+    background:none;
+    border:none;
+    padding:7px 13px;
+    cursor:pointer;
+    color:var(--ink-soft);
+    font-family:inherit;
+    font-size:inherit;
+    letter-spacing:0.03em;
+    transition:background .2s ease, color .2s ease;
+  }
+  .lang-switch button.active{
+    background:var(--teal);
+    color:#fff;
+  }
 
   .nav-toggle{
     display:none;
@@ -131,7 +166,7 @@
   .hero{
     position:relative;
     overflow:hidden;
-    padding:96px 0 88px;
+    padding:88px 0 88px;
     border-bottom:1px solid var(--line);
   }
   #meshCanvas{
@@ -144,6 +179,27 @@
   .hero-inner{
     position:relative;
     z-index:1;
+  }
+  .hero-top{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    margin-bottom:26px;
+    flex-wrap:wrap;
+  }
+  .hero-photo{
+    width:118px;
+    height:118px;
+    border-radius:50%;
+    overflow:hidden;
+    flex-shrink:0;
+    box-shadow:0 0 0 3px var(--surface), 0 0 0 5px var(--teal), 0 18px 34px -14px rgba(14,124,107,0.4);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 20%;
   }
   .eyebrow{
     font-family:var(--font-mono);
@@ -191,7 +247,7 @@
     gap:14px 22px;
     margin-bottom:38px;
   }
-  .contact-row a{
+  .contact-row a, .contact-row span.loc{
     display:inline-flex;
     align-items:center;
     gap:8px;
@@ -691,7 +747,8 @@
     nav.links.open{ display:flex; }
     .nav-toggle{ display:block; }
     .wrap{ padding:0 20px; }
-    .hero{ padding:64px 0 56px; }
+    .hero{ padding:60px 0 52px; }
+    .hero-photo{ width:96px; height:96px; }
     section{ padding:60px 0; }
     .contact-box{ padding:36px 22px; }
   }
@@ -706,37 +763,50 @@
       RSG // PORTFOLIO
     </a>
     <nav class="links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#education" data-i18n="nav.education">Education</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#publications" data-i18n="nav.publications">Publications</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button type="button" id="langEnBtn" class="active" data-lang="en">EN</button>
+        <button type="button" id="langFrBtn" data-lang="fr">FR</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" data-i18n="nav.menu">MENU</button>
+    </div>
   </div>
 </header>
 
 <section class="hero" id="top">
   <canvas id="meshCanvas"></canvas>
   <div class="wrap hero-inner">
-    <span class="eyebrow">Portfolio — Materials Science</span>
+    <div class="hero-top">
+      <div class="hero-photo">
+        <img src="images/prof-pic.jpg" alt="Portrait of Rahul Subramanian Girija">
+      </div>
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Portfolio — Materials Science</span>
+      </div>
+    </div>
     <h1>Rahul Subramanian<br><span class="accent">Girija</span>, PhD</h1>
-    <p class="role">Materials Scientist — Aerospace R&amp;D</p>
-    <p class="tagline">I work at the boundary between microstructure and performance — characterizing, testing, and troubleshooting the materials that go into tier-1 aerospace hardware, from brazed heat exchangers to hydrogen-exposed stainless steels.</p>
+    <p class="role" data-i18n="hero.role">Materials Scientist — Aerospace R&amp;D</p>
+    <p class="tagline" data-i18n="hero.tagline">I work at the boundary between microstructure and performance — characterizing, testing, and troubleshooting the materials that go into tier-1 aerospace hardware, from brazed heat exchangers to hydrogen-exposed stainless steels.</p>
 
     <div class="contact-row">
       <a href="mailto:rahulsg96@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>rahulsg96@gmail.com</a>
       <a href="tel:+33767493412"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+33 (0)7 67 49 34 12</a>
       <a href="https://linkedin.com/in/rahulsg96" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/rahulsg96</a>
-      <span><svg style="width:15px;height:15px;stroke:#0E7C6B;display:inline;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;">Toulouse, France</span></span>
+      <span class="loc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Toulouse, France</span>
     </div>
 
     <div class="stat-row">
-      <div class="stat-chip"><span class="dot"></span>PhD, Materials Science — I2M / CNRS</div>
-      <div class="stat-chip"><span class="dot"></span>Tier-1 aerospace supplier — Liebherr Aerospace</div>
-      <div class="stat-chip"><span class="dot"></span>Bilingual — English &amp; French</div>
+      <div class="stat-chip"><span class="dot"></span><span data-i18n="hero.stat1">PhD, Materials Science — I2M / CNRS</span></div>
+      <div class="stat-chip"><span class="dot"></span><span data-i18n="hero.stat2">Tier-1 aerospace supplier — Liebherr Aerospace</span></div>
+      <div class="stat-chip"><span class="dot"></span><span data-i18n="hero.stat3">Bilingual — English &amp; French</span></div>
     </div>
   </div>
 </section>
@@ -746,23 +816,23 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 01 — About</span>
-      <h2>Grounded in the microstructure, built for the application</h2>
+      <span class="eyebrow" data-i18n="about.eyebrow">Fig. 01 — About</span>
+      <h2 data-i18n="about.heading">Grounded in the microstructure, built for the application</h2>
     </div>
     <div class="about-grid">
       <div class="reveal">
-        <p>I'm a materials scientist with a PhD and specialized expertise in advanced materials for aerospace applications, currently working as a Scientific Specialist for the Materials and Special Processes team at Liebherr Aerospace Toulouse, through Capgemini Engineering.</p>
-        <p>My track record spans R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. Before that, my PhD work at I2M (CNRS) took a deep dive into hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration.</p>
-        <p>I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.</p>
+        <p data-i18n="about.p1">I'm a materials scientist with a PhD and specialized expertise in advanced materials for aerospace applications, currently working as a Scientific Specialist for the Materials and Special Processes team at Liebherr Aerospace Toulouse, through Capgemini Engineering.</p>
+        <p data-i18n="about.p2">My track record spans R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. Before that, my PhD work at I2M (CNRS) took a deep dive into hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration.</p>
+        <p data-i18n="about.p3">I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.</p>
       </div>
       <div class="lang-card reveal">
-        <h3>Languages</h3>
+        <h3 data-i18n="about.langCardTitle">Languages</h3>
         <div class="lang-item">
-          <div class="lang-top"><span>English</span><span class="level">Native / Bilingual</span></div>
+          <div class="lang-top"><span data-i18n="about.lang1Name">English</span><span class="level" data-i18n="about.lang1Level">Native / Bilingual</span></div>
           <div class="lang-bar"><div class="lang-fill" data-width="100"></div></div>
         </div>
         <div class="lang-item">
-          <div class="lang-top"><span>French</span><span class="level">Full Professional</span></div>
+          <div class="lang-top"><span data-i18n="about.lang2Name">French</span><span class="level" data-i18n="about.lang2Level">Full Professional</span></div>
           <div class="lang-bar"><div class="lang-fill" data-width="90"></div></div>
         </div>
       </div>
@@ -772,80 +842,82 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 02 — Capabilities</span>
-      <h2>Skills &amp; technical knowledge</h2>
-      <p class="section-sub">Filter by category to see where each capability sits — from hands-on characterization work to the numerical tools and domain expertise behind it.</p>
+      <span class="eyebrow" data-i18n="skills.eyebrow">Fig. 02 — Capabilities</span>
+      <h2 data-i18n="skills.heading">Skills &amp; technical knowledge</h2>
+      <p class="section-sub" data-i18n="skills.subhead">Filter by category to see where each capability sits — from hands-on characterization work to the numerical tools and domain expertise behind it.</p>
     </div>
 
     <div class="filter-row reveal">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="characterization">Characterization</button>
-      <button class="filter-btn" data-filter="numerical">Numerical &amp; Simulation</button>
-      <button class="filter-btn" data-filter="domain">Domain Expertise</button>
-      <button class="filter-btn" data-filter="soft">Soft Skills &amp; Tools</button>
+      <button class="filter-btn active" data-filter="all" data-i18n="skills.filterAll">All</button>
+      <button class="filter-btn" data-filter="characterization" data-i18n="skills.filterCharacterization">Characterization</button>
+      <button class="filter-btn" data-filter="numerical" data-i18n="skills.filterNumerical">Numerical &amp; Simulation</button>
+      <button class="filter-btn" data-filter="domain" data-i18n="skills.filterDomain">Domain Expertise</button>
+      <button class="filter-btn" data-filter="soft" data-i18n="skills.filterSoft">Soft Skills &amp; Tools</button>
     </div>
 
     <div class="skill-grid reveal" id="skillGrid">
       <!-- characterization -->
-      <span class="skill-tag" data-cat="characterization">Microscopy</span>
-      <span class="skill-tag" data-cat="characterization">SEM</span>
-      <span class="skill-tag" data-cat="characterization">TEM</span>
-      <span class="skill-tag" data-cat="characterization">XRD</span>
-      <span class="skill-tag" data-cat="characterization">EBSD</span>
-      <span class="skill-tag" data-cat="characterization">EDS</span>
-      <span class="skill-tag" data-cat="characterization">X-ray Tomography</span>
-      <span class="skill-tag" data-cat="characterization">AFM</span>
-      <span class="skill-tag" data-cat="characterization">TDS</span>
-      <span class="skill-tag" data-cat="characterization">GD-OES</span>
-      <span class="skill-tag" data-cat="characterization">Mechanical Testing</span>
-      <span class="skill-tag" data-cat="characterization">Alicona</span>
-      <span class="skill-tag" data-cat="characterization">Keyence</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.microscopy">Microscopy</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.sem">SEM</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.tem">TEM</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.xrd">XRD</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.ebsd">EBSD</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.eds">EDS</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.tomography">X-ray Tomography</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.afm">AFM</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.tds">TDS</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.gdoes">GD-OES</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.mechtesting">Mechanical Testing</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.alicona">Alicona</span>
+      <span class="skill-tag" data-cat="characterization" data-i18n="skill.keyence">Keyence</span>
       <!-- numerical -->
-      <span class="skill-tag" data-cat="numerical">OIM Analysis</span>
-      <span class="skill-tag" data-cat="numerical">ATEX</span>
-      <span class="skill-tag" data-cat="numerical">FEM</span>
-      <span class="skill-tag" data-cat="numerical">Zebulon</span>
-      <span class="skill-tag" data-cat="numerical">Meshlab</span>
-      <span class="skill-tag" data-cat="numerical">Gmsh</span>
-      <span class="skill-tag" data-cat="numerical">AutoCAD</span>
-      <span class="skill-tag" data-cat="numerical">CATIA</span>
-      <span class="skill-tag" data-cat="numerical">Autodesk Inventor</span>
-      <span class="skill-tag" data-cat="numerical">Python</span>
-      <span class="skill-tag" data-cat="numerical">MATLAB</span>
-      <span class="skill-tag" data-cat="numerical">Materialise MAGICS</span>
-      <span class="skill-tag" data-cat="numerical">Avizo</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.oim">OIM Analysis</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.atex">ATEX</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.fem">FEM</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.zebulon">Zebulon</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.meshlab">Meshlab</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.gmsh">Gmsh</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.autocad">AutoCAD</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.catia">CATIA</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.inventor">Autodesk Inventor</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.python">Python</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.matlab">MATLAB</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.magics">Materialise MAGICS</span>
+      <span class="skill-tag" data-cat="numerical" data-i18n="skill.avizo">Avizo</span>
       <!-- domain -->
-      <span class="skill-tag" data-cat="domain">Materials Science</span>
-      <span class="skill-tag" data-cat="domain">Metal Additive Manufacturing</span>
-      <span class="skill-tag" data-cat="domain">Fatigue of Metals</span>
-      <span class="skill-tag" data-cat="domain">Corrosion</span>
-      <span class="skill-tag" data-cat="domain">Hydrogen Embrittlement</span>
-      <span class="skill-tag" data-cat="domain">Heat Exchangers</span>
-      <span class="skill-tag" data-cat="domain">Process Optimization</span>
-      <span class="skill-tag" data-cat="domain">Experimental Investigation</span>
-      <span class="skill-tag" data-cat="domain">Project Management</span>
-      <span class="skill-tag" data-cat="domain">Market Research</span>
-      <span class="skill-tag" data-cat="domain">Scientific Research</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.materialsscience">Materials Science</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.additive">Metal Additive Manufacturing</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.fatigue">Fatigue of Metals</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.corrosion">Corrosion</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.tribology">Tribology</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.hydrogen">Hydrogen Embrittlement</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.heatexchangers">Heat Exchangers</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.processopt">Process Optimization</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.experimental">Experimental Investigation</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.projectmgmt">Project Management</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.supplierEval">Supplier Evaluation</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.marketresearch">Market Research</span>
+      <span class="skill-tag" data-cat="domain" data-i18n="skill.scientificresearch">Scientific Research</span>
       <!-- soft -->
-      <span class="skill-tag" data-cat="soft">Scientific Writing</span>
-      <span class="skill-tag" data-cat="soft">Technical Presentation</span>
-      <span class="skill-tag" data-cat="soft">Problem Solving</span>
-      <span class="skill-tag" data-cat="soft">Team Work</span>
-      <span class="skill-tag" data-cat="soft">Listening</span>
-      <span class="skill-tag" data-cat="soft">Transparency</span>
-      <span class="skill-tag" data-cat="soft">Empathy</span>
-      <span class="skill-tag" data-cat="soft">Origin Pro</span>
-      <span class="skill-tag" data-cat="soft">Office 365</span>
-      <span class="skill-tag" data-cat="soft">LaTeX</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.writing">Scientific Writing</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.presentation">Technical Presentation</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.problemsolving">Problem Solving</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.teamwork">Team Work</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.listening">Listening</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.transparency">Transparency</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.empathy">Empathy</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.originpro">Origin Pro</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.office365">Office 365</span>
+      <span class="skill-tag" data-cat="soft" data-i18n="skill.latex">LaTeX</span>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 03 — Experience</span>
-      <h2>Work experience</h2>
-      <p class="section-sub">Click a role to expand the details.</p>
+      <span class="eyebrow" data-i18n="experience.eyebrow">Fig. 03 — Experience</span>
+      <h2 data-i18n="experience.heading">Work experience</h2>
+      <p class="section-sub" data-i18n="experience.subhead">Click a role to expand the details.</p>
     </div>
 
     <div class="timeline">
@@ -853,18 +925,18 @@
         <button class="exp-head" aria-expanded="true">
           <div class="exp-title-block">
             <h3>Mechanical and Physical Engineer</h3>
-            <div class="company">Capgemini Engineering — embedded at Liebherr Aerospace Toulouse</div>
-            <div class="exp-meta">04/2024 — Present · Toulouse, France · Scientific Specialist, Materials &amp; Special Processes</div>
+            <div class="company" data-i18n="exp1.company">Capgemini Engineering — embedded at Liebherr Aerospace Toulouse</div>
+            <div class="exp-meta" data-i18n="exp1.meta">04/2024 — Present · Toulouse, France · Scientific Specialist, Materials &amp; Special Processes</div>
           </div>
           <span class="exp-toggle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
         </button>
         <div class="exp-body">
           <div class="exp-body-inner">
             <ul>
-              <li><strong>Compact aluminium heat exchangers (Next Single Aisle):</strong> solved a brazing-joint quality issue on 80 µm fins by tracing clad diffusion through extensive microstructural analysis — findings that led to a change in Liebherr's fin-forming process.</li>
-              <li><strong>Graphite seal rings for valves:</strong> built an ASTM-compliant material characterization framework and supplier qualification protocol, giving the team an end-to-end path to evaluate and select vendors.</li>
-              <li><strong>Inconel 718 valve body redesign:</strong> led microstructural characterization across casting, forging, and additive manufacturing routes, linking microstructure to post-heat-treatment properties to guide material selection for high-temperature service.</li>
-              <li>Made the transition from academic research to corporate R&amp;D — adapting quickly to industry workflows and cross-functional collaboration to turn material insight into implemented solutions.</li>
+              <li data-i18n-html="exp1.b1"><strong>Compact aluminium heat exchangers (Next Single Aisle):</strong> solved a brazing-joint quality issue on 80 µm fins by tracing clad diffusion through extensive microstructural analysis — findings that led to a change in Liebherr's fin-forming process.</li>
+              <li data-i18n-html="exp1.b2"><strong>Graphite seal rings for valves:</strong> built an ASTM-compliant material characterization framework and supplier qualification protocol, giving the team an end-to-end path to evaluate and select vendors.</li>
+              <li data-i18n-html="exp1.b3"><strong>Inconel 718 valve body redesign:</strong> led microstructural characterization across casting, forging, and additive manufacturing routes, linking microstructure to post-heat-treatment properties to guide material selection for high-temperature service.</li>
+              <li data-i18n-html="exp1.b4">Made the transition from academic research to corporate R&amp;D — adapting quickly to industry workflows and cross-functional collaboration to turn material insight into implemented solutions.</li>
             </ul>
           </div>
         </div>
@@ -873,19 +945,19 @@
       <div class="exp-card reveal">
         <button class="exp-head" aria-expanded="false">
           <div class="exp-title-block">
-            <h3>PhD / Young Researcher</h3>
-            <div class="company">I2M, National Centre for Scientific Research (CNRS)</div>
-            <div class="exp-meta">02/2020 — 08/2023 · Bordeaux, France · With Institut P', LASIE &amp; MCAM (Australia)</div>
+            <h3 data-i18n="exp2.title">PhD / Young Researcher</h3>
+            <div class="company" data-i18n="exp2.company">I2M, National Centre for Scientific Research (CNRS)</div>
+            <div class="exp-meta" data-i18n="exp2.meta">02/2020 — 08/2023 · Bordeaux, France · With Institut P', LASIE &amp; MCAM (Australia)</div>
           </div>
           <span class="exp-toggle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
         </button>
         <div class="exp-body">
           <div class="exp-body-inner">
             <ul>
-              <li>Investigated hydrogen embrittlement in laser powder-bed-fusion 316L, 304L, and 17-4PH stainless steels under tensile and high-cycle fatigue loading.</li>
-              <li>Designed and built a coupled fatigue–hydrogen electrochemical testing rig, running high-pressure hydrogen gas mechanical tests as part of a three-lab collaboration.</li>
-              <li>Managed procurement of powders and lab equipment end-to-end — supplier communication, quoting, and coordination — to keep the lab running.</li>
-              <li>Fabricated, machined, and characterized specimens, communicated results regularly, and mentored Master's students and interns on the project.</li>
+              <li data-i18n-html="exp2.b1">Investigated hydrogen embrittlement in laser powder-bed-fusion 316L, 304L, and 17-4PH stainless steels under tensile and high-cycle fatigue loading.</li>
+              <li data-i18n-html="exp2.b2">Designed and built a coupled fatigue–hydrogen electrochemical testing rig, running high-pressure hydrogen gas mechanical tests as part of a three-lab collaboration.</li>
+              <li data-i18n-html="exp2.b3">Managed procurement of powders and lab equipment end-to-end — supplier communication, quoting, and coordination — to keep the lab running.</li>
+              <li data-i18n-html="exp2.b4">Fabricated, machined, and characterized specimens, communicated results regularly, and mentored Master's students and interns on the project.</li>
             </ul>
           </div>
         </div>
@@ -896,22 +968,22 @@
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 04 — Education</span>
-      <h2>Education</h2>
+      <span class="eyebrow" data-i18n="education.eyebrow">Fig. 04 — Education</span>
+      <h2 data-i18n="education.heading">Education</h2>
     </div>
     <div class="edu-grid">
       <div class="edu-card reveal">
-        <h3>PhD — Materials Science</h3>
+        <h3 data-i18n="edu1.title">PhD — Materials Science</h3>
         <div class="school">HESAM University · ENSAM · Institut de Mécanique et d'Ingénierie (I2M)</div>
         <div class="meta">02/2020 — 02/2024 · Bordeaux, France</div>
-        <p class="note">Doctoral research on hydrogen embrittlement in additively manufactured stainless steels, conducted in collaboration with Institut P', LASIE, and MCAM (Australia).</p>
+        <p class="note" data-i18n="edu1.note">Doctoral research on hydrogen embrittlement in additively manufactured stainless steels, conducted in collaboration with Institut P', LASIE, and MCAM (Australia).</p>
       </div>
       <div class="edu-card reveal">
         <h3>Master — Aeronautical Mechanics &amp; Energetics (AME)</h3>
         <div class="school">ISAE-ENSMA — École Nationale Supérieure de Mécanique et d'Aérotechnique</div>
         <div class="meta">09/2017 — 09/2019 · Poitiers, France</div>
-        <p class="note">Specialisation in high-temperature materials.</p>
-        <span class="badge-pill">High-Temperature Materials Track</span>
+        <p class="note" data-i18n="edu2.note">Specialisation in high-temperature materials.</p>
+        <span class="badge-pill" data-i18n="edu2.badge">High-Temperature Materials Track</span>
       </div>
     </div>
   </section>
@@ -919,35 +991,35 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 05 — Research</span>
-      <h2>Scientific projects</h2>
-      <p class="section-sub">A run of research internships and team projects that shaped the PhD work and everything since.</p>
+      <span class="eyebrow" data-i18n="projects.eyebrow">Fig. 05 — Research</span>
+      <h2 data-i18n="projects.heading">Scientific projects</h2>
+      <p class="section-sub" data-i18n="projects.subhead">A run of research internships and team projects that shaped the PhD work and everything since.</p>
     </div>
     <div class="project-grid">
       <div class="project-card reveal">
         <div class="meta">04/2019 — 10/2019 · Institut P' / UGITECH</div>
-        <h3>Master-2 Research Internship</h3>
-        <p>Assessed hydrogen embrittlement in stainless steels at low temperatures.</p>
+        <h3 data-i18n="p1.title">Master-2 Research Internship</h3>
+        <p data-i18n="p1.desc">Assessed hydrogen embrittlement in stainless steels at low temperatures.</p>
       </div>
       <div class="project-card reveal">
         <div class="meta">09/2018 — 02/2019 · Safran Aircraft Engines</div>
-        <h3>Master's Research Project</h3>
-        <p>Studied the effect of over-aging on the creep behaviour of cast Inconel 718 alloy.</p>
+        <h3 data-i18n="p2.title">Master's Research Project</h3>
+        <p data-i18n="p2.desc">Studied the effect of over-aging on the creep behaviour of cast Inconel 718 alloy.</p>
       </div>
       <div class="project-card reveal">
         <div class="meta">04/2018 — 10/2018 · Institut P' / ANR ImPEKKable</div>
-        <h3>Master-1 Research Internship</h3>
-        <p>Characterized nanoindentation creep behaviour of epoxy, aged epoxy, and PEKK polymer at high temperatures.</p>
+        <h3 data-i18n="p3.title">Master-1 Research Internship</h3>
+        <p data-i18n="p3.desc">Characterized nanoindentation creep behaviour of epoxy, aged epoxy, and PEKK polymer at high temperatures.</p>
       </div>
       <div class="project-card highlight reveal">
         <div class="meta">11/2017 — 07/2018 · Student Aerospace Challenge '18</div>
-        <h3>Cryogenic Liquid Oxygen Tank — Team Project</h3>
-        <p>Studied heat transfer modes and material choices to reduce vaporisation losses and improve tank design. Awarded the Ariane Grand Prize for Best Project.</p>
+        <h3 data-i18n="p4.title">Cryogenic Liquid Oxygen Tank — Team Project</h3>
+        <p data-i18n="p4.desc">Studied heat transfer modes and material choices to reduce vaporisation losses and improve tank design. Awarded the Ariane Grand Prize for Best Project.</p>
       </div>
       <div class="project-card reveal">
-        <div class="meta">11/2016 — 04/2017 · Bachelor Final Year Internship</div>
-        <h3>Acoustic Emission in Composite Laminates</h3>
-        <p>Investigated the acoustic emission behaviour of glass-fibre composite laminates subject to small-scale impact.</p>
+        <div class="meta" data-i18n="p5.meta">11/2016 — 04/2017 · Bachelor Final Year Internship</div>
+        <h3 data-i18n="p5.title">Acoustic Emission in Composite Laminates</h3>
+        <p data-i18n="p5.desc">Investigated the acoustic emission behaviour of glass-fibre composite laminates subject to small-scale impact.</p>
       </div>
     </div>
   </section>
@@ -955,11 +1027,11 @@
   <!-- PUBLICATIONS -->
   <section id="publications">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 06 — Publications</span>
-      <h2>Publications</h2>
+      <span class="eyebrow" data-i18n="publications.eyebrow">Fig. 06 — Publications</span>
+      <h2 data-i18n="publications.heading">Publications</h2>
     </div>
     <div class="pub-card reveal">
-      <div class="meta">Conference Proceedings · 2022</div>
+      <div class="meta" data-i18n="pub.meta">Conference Proceedings · 2022</div>
       <h3>Assessment of the influence of hydrogen on the fatigue life of selective laser melted 316L austenitic stainless steels</h3>
       <div class="authors">Subramanian Girija, et al. — with Nicolas Saintier, Gilbert Hénaff, Isabelle Aubert, Mohamed El May, Abdelali Oudriss, Xavier Feaugas</div>
       <div class="venue">International Conference on Metals and Hydrogen — Steelyhydrogen</div>
@@ -969,8 +1041,8 @@
   <!-- CERTIFICATES -->
   <section id="certificates">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 07 — Certifications</span>
-      <h2>Certificates</h2>
+      <span class="eyebrow" data-i18n="certificates.eyebrow">Fig. 07 — Certifications</span>
+      <h2 data-i18n="certificates.heading">Certificates</h2>
     </div>
     <div class="cert-grid">
       <div class="cert-card reveal">
@@ -978,7 +1050,7 @@
         <div>
           <h3>Emerging Leaders Program — Grade B</h3>
           <div class="meta">06/2025 — 07/2025</div>
-          <p>Leadership development program offered by Capgemini in collaboration with Harvard Business Review.</p>
+          <p data-i18n="cert1.desc">Leadership development program offered by Capgemini in collaboration with Harvard Business Review.</p>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -986,7 +1058,7 @@
         <div>
           <h3>Sustainability for Products &amp; Systems Engineers</h3>
           <div class="meta">08/2025 — 09/2025</div>
-          <p>Beginner course on sustainability, systems thinking, eco-design, life-cycle analysis, and sustainable energy sources.</p>
+          <p data-i18n="cert2.desc">Beginner course on sustainability, systems thinking, eco-design, life-cycle analysis, and sustainable energy sources.</p>
         </div>
       </div>
     </div>
@@ -998,11 +1070,11 @@
 <section id="contact" class="contact-section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Fig. 08 — Contact</span>
+      <span class="eyebrow" data-i18n="contact.eyebrow">Fig. 08 — Contact</span>
     </div>
     <div class="contact-box reveal">
-      <h2>Let's talk materials.</h2>
-      <p>Open to conversations about aerospace materials, R&amp;D roles, or collaboration on characterization and hydrogen-embrittlement work. The fastest way to reach me is email.</p>
+      <h2 data-i18n="contact.heading">Let's talk materials.</h2>
+      <p data-i18n="contact.paragraph">Open to conversations about aerospace materials, R&amp;D roles, or collaboration on characterization and hydrogen-embrittlement work. The fastest way to reach me is email.</p>
       <a class="mailto-btn" href="mailto:rahulsg96@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
         rahulsg96@gmail.com
@@ -1016,11 +1088,190 @@
   </div>
 </section>
 
-<footer>
-  © 2026 Rahul Subramanian Girija — Built with grain boundaries in mind.
-</footer>
+<footer data-i18n="footer.text">© 2026 Rahul Subramanian Girija — Built with grain boundaries in mind.</footer>
 
 <script>
+  // ---------- Translations ----------
+  const translations = {
+    en: {
+      nav: { about:"About", skills:"Skills", experience:"Experience", education:"Education", projects:"Projects", publications:"Publications", contact:"Contact", menu:"MENU" },
+      hero: {
+        eyebrow:"Portfolio — Materials Science",
+        role:"Materials Scientist — Aerospace R&amp;D",
+        tagline:"I work at the boundary between microstructure and performance — characterizing, testing, and troubleshooting the materials that go into tier-1 aerospace hardware, from brazed heat exchangers to hydrogen-exposed stainless steels.",
+        stat1:"PhD, Materials Science — I2M / CNRS",
+        stat2:"Tier-1 aerospace supplier — Liebherr Aerospace",
+        stat3:"Bilingual — English &amp; French"
+      },
+      about: {
+        eyebrow:"Fig. 01 — About",
+        heading:"Grounded in the microstructure, built for the application",
+        p1:"I'm a materials scientist with a PhD and specialized expertise in advanced materials for aerospace applications, currently working as a Scientific Specialist for the Materials and Special Processes team at Liebherr Aerospace Toulouse, through Capgemini Engineering.",
+        p2:"My track record spans R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. Before that, my PhD work at I2M (CNRS) took a deep dive into hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration.",
+        p3:"I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.",
+        langCardTitle:"Languages",
+        lang1Name:"English", lang1Level:"Native / Bilingual",
+        lang2Name:"French", lang2Level:"Full Professional"
+      },
+      skills: {
+        eyebrow:"Fig. 02 — Capabilities",
+        heading:"Skills &amp; technical knowledge",
+        subhead:"Filter by category to see where each capability sits — from hands-on characterization work to the numerical tools and domain expertise behind it.",
+        filterAll:"All", filterCharacterization:"Characterization", filterNumerical:"Numerical &amp; Simulation", filterDomain:"Domain Expertise", filterSoft:"Soft Skills &amp; Tools"
+      },
+      skill: {
+        microscopy:"Microscopy", sem:"SEM", tem:"TEM", xrd:"XRD", ebsd:"EBSD", eds:"EDS", tomography:"X-ray Tomography", afm:"AFM", tds:"TDS", gdoes:"GD-OES", mechtesting:"Mechanical Testing", alicona:"Alicona", keyence:"Keyence",
+        oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
+        materialsscience:"Materials Science", additive:"Metal Additive Manufacturing", fatigue:"Fatigue of Metals", corrosion:"Corrosion", tribology:"Tribology", hydrogen:"Hydrogen Embrittlement", heatexchangers:"Heat Exchangers", processopt:"Process Optimization", experimental:"Experimental Investigation", projectmgmt:"Project Management", supplierEval:"Supplier Evaluation", marketresearch:"Market Research", scientificresearch:"Scientific Research",
+        writing:"Scientific Writing", presentation:"Technical Presentation", problemsolving:"Problem Solving", teamwork:"Team Work", listening:"Listening", transparency:"Transparency", empathy:"Empathy", originpro:"Origin Pro", office365:"Office 365", latex:"LaTeX"
+      },
+      experience: { eyebrow:"Fig. 03 — Experience", heading:"Work experience", subhead:"Click a role to expand the details." },
+      exp1: {
+        company:"Capgemini Engineering — embedded at Liebherr Aerospace Toulouse",
+        meta:"04/2024 — Present · Toulouse, France · Scientific Specialist, Materials &amp; Special Processes",
+        b1:"<strong>Compact aluminium heat exchangers (Next Single Aisle):</strong> solved a brazing-joint quality issue on 80 µm fins by tracing clad diffusion through extensive microstructural analysis — findings that led to a change in Liebherr's fin-forming process.",
+        b2:"<strong>Graphite seal rings for valves:</strong> built an ASTM-compliant material characterization framework and supplier qualification protocol, giving the team an end-to-end path to evaluate and select vendors.",
+        b3:"<strong>Inconel 718 valve body redesign:</strong> led microstructural characterization across casting, forging, and additive manufacturing routes, linking microstructure to post-heat-treatment properties to guide material selection for high-temperature service.",
+        b4:"Made the transition from academic research to corporate R&amp;D — adapting quickly to industry workflows and cross-functional collaboration to turn material insight into implemented solutions."
+      },
+      exp2: {
+        title:"PhD / Young Researcher",
+        company:"I2M, National Centre for Scientific Research (CNRS)",
+        meta:"02/2020 — 08/2023 · Bordeaux, France · With Institut P', LASIE &amp; MCAM (Australia)",
+        b1:"Investigated hydrogen embrittlement in laser powder-bed-fusion 316L, 304L, and 17-4PH stainless steels under tensile and high-cycle fatigue loading.",
+        b2:"Designed and built a coupled fatigue–hydrogen electrochemical testing rig, running high-pressure hydrogen gas mechanical tests as part of a three-lab collaboration.",
+        b3:"Managed procurement of powders and lab equipment end-to-end — supplier communication, quoting, and coordination — to keep the lab running.",
+        b4:"Fabricated, machined, and characterized specimens, communicated results regularly, and mentored Master's students and interns on the project."
+      },
+      education: { eyebrow:"Fig. 04 — Education", heading:"Education" },
+      edu1: { title:"PhD — Materials Science", note:"Doctoral research on hydrogen embrittlement in additively manufactured stainless steels, conducted in collaboration with Institut P', LASIE, and MCAM (Australia)." },
+      edu2: { note:"Specialisation in high-temperature materials.", badge:"High-Temperature Materials Track" },
+      projects: { eyebrow:"Fig. 05 — Research", heading:"Scientific projects", subhead:"A run of research internships and team projects that shaped the PhD work and everything since." },
+      p1: { title:"Master-2 Research Internship", desc:"Assessed hydrogen embrittlement in stainless steels at low temperatures." },
+      p2: { title:"Master's Research Project", desc:"Studied the effect of over-aging on the creep behaviour of cast Inconel 718 alloy." },
+      p3: { title:"Master-1 Research Internship", desc:"Characterized nanoindentation creep behaviour of epoxy, aged epoxy, and PEKK polymer at high temperatures." },
+      p4: { title:"Cryogenic Liquid Oxygen Tank — Team Project", desc:"Studied heat transfer modes and material choices to reduce vaporisation losses and improve tank design. Awarded the Ariane Grand Prize for Best Project." },
+      p5: { meta:"11/2016 — 04/2017 · Bachelor Final Year Internship", title:"Acoustic Emission in Composite Laminates", desc:"Investigated the acoustic emission behaviour of glass-fibre composite laminates subject to small-scale impact." },
+      publications: { eyebrow:"Fig. 06 — Publications", heading:"Publications" },
+      pub: { meta:"Conference Proceedings · 2022" },
+      certificates: { eyebrow:"Fig. 07 — Certifications", heading:"Certificates" },
+      cert1: { desc:"Leadership development program offered by Capgemini in collaboration with Harvard Business Review." },
+      cert2: { desc:"Beginner course on sustainability, systems thinking, eco-design, life-cycle analysis, and sustainable energy sources." },
+      contact: { eyebrow:"Fig. 08 — Contact", heading:"Let's talk materials.", paragraph:"Open to conversations about aerospace materials, R&amp;D roles, or collaboration on characterization and hydrogen-embrittlement work. The fastest way to reach me is email." },
+      footer: { text:"© 2026 Rahul Subramanian Girija — Built with grain boundaries in mind." }
+    },
+    fr: {
+      nav: { about:"À propos", skills:"Compétences", experience:"Expérience", education:"Formation", projects:"Projets", publications:"Publications", contact:"Contact", menu:"MENU" },
+      hero: {
+        eyebrow:"Portfolio — Science des Matériaux",
+        role:"Scientifique des Matériaux — R&amp;D Aérospatiale",
+        tagline:"Je travaille à la frontière entre microstructure et performance — caractérisation, essais et résolution de problèmes sur les matériaux qui équipent les systèmes aérospatiaux de rang 1, des échangeurs de chaleur brasés aux aciers inoxydables exposés à l'hydrogène.",
+        stat1:"Doctorat, Science des Matériaux — I2M / CNRS",
+        stat2:"Fournisseur aéronautique de rang 1 — Liebherr Aerospace",
+        stat3:"Bilingue — Anglais &amp; Français"
+      },
+      about: {
+        eyebrow:"Fig. 01 — À propos",
+        heading:"Ancré dans la microstructure, pensé pour l'application",
+        p1:"Je suis scientifique des matériaux, titulaire d'un doctorat, avec une expertise spécialisée dans les matériaux avancés pour l'aérospatiale. Je travaille actuellement comme Consultant Matériaux pour l'équipe Matériaux et Procédés spéciaux de Liebherr Aerospace Toulouse, via Capgemini Engineering.",
+        p2:"Mon parcours couvre la R&amp;D, l'optimisation des procédés et la caractérisation des matériaux au sein d'une chaîne d'approvisionnement aéronautique de rang 1. Avant cela, ma thèse à l'I2M (CNRS) a porté en profondeur sur la fragilisation par l'hydrogène des aciers inoxydables fabriqués par fusion laser sur lit de poudre — combinant électrochimie, essais mécaniques et analyse microstructurale, en collaboration avec trois laboratoires.",
+        p3:"J'aime les problèmes situés à l'intersection du procédé et de la propriété : pourquoi un joint casse, pourquoi une microstructure se fragilise, pourquoi une géométrie d'ailette ne se forme pas comme prévu sur le plan — puis trouver la solution qui sera réellement mise en œuvre.",
+        langCardTitle:"Langues",
+        lang1Name:"Anglais", lang1Level:"Bilingue",
+        lang2Name:"Français", lang2Level:"Maîtrise professionnelle complète"
+      },
+      skills: {
+        eyebrow:"Fig. 02 — Compétences",
+        heading:"Compétences &amp; connaissances techniques",
+        subhead:"Filtrez par catégorie pour voir où se situe chaque compétence — du travail pratique de caractérisation aux outils numériques et à l'expertise métier qui les sous-tendent.",
+        filterAll:"Tous", filterCharacterization:"Caractérisation", filterNumerical:"Numérique &amp; Simulation", filterDomain:"Expertise Métier", filterSoft:"Savoir-être &amp; Outils"
+      },
+      skill: {
+        microscopy:"Microscopie", sem:"MEB", tem:"MET", xrd:"DRX", ebsd:"EBSD", eds:"EDS", tomography:"Tomographie X", afm:"AFM", tds:"TDS", gdoes:"GD-OES", mechtesting:"Essais mécaniques", alicona:"Alicona", keyence:"Keyence",
+        oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
+        materialsscience:"Sciences des Matériaux", additive:"Fabrication Additive Métallique", fatigue:"Fatigue des Métaux", corrosion:"Corrosion", tribology:"Tribologie", hydrogen:"Fragilisation par l'Hydrogène", heatexchangers:"Échangeurs de Chaleur", processopt:"Optimisation des Procédés", experimental:"Étude Expérimentale", projectmgmt:"Gestion de Projet", supplierEval:"Évaluation de Fournisseurs", marketresearch:"Étude de Marché", scientificresearch:"Recherche Scientifique",
+        writing:"Rédaction Scientifique", presentation:"Présentation Technique", problemsolving:"Résolution de Problèmes", teamwork:"Travail d'Équipe", listening:"Écoute Active", transparency:"Transparence", empathy:"Empathie", originpro:"Origin Pro", office365:"Office 365", latex:"LaTeX"
+      },
+      experience: { eyebrow:"Fig. 03 — Expérience", heading:"Expérience professionnelle", subhead:"Cliquez sur un poste pour afficher les détails." },
+      exp1: {
+        company:"Capgemini Engineering — en mission chez Liebherr Aerospace Toulouse",
+        meta:"04/2024 — Présent · Toulouse, France · Consultant Matériaux, Équipe Matériaux et Procédés Spéciaux",
+        b1:"<strong>Échangeurs de chaleur compacts en aluminium (programme Next Single Aisle) :</strong> résolution d'un problème de qualité sur les joints brasés d'ailettes de 80 µm en traçant la diffusion du placage par une analyse microstructurale approfondie — des conclusions qui ont conduit à modifier le procédé de formage des ailettes chez Liebherr.",
+        b2:"<strong>Bagues d'étanchéité en graphite pour vannes :</strong> mise en place d'un référentiel de caractérisation conforme aux normes ASTM et d'un protocole de qualification fournisseurs, incluant une étude du comportement tribologique, pour évaluer et sélectionner les fournisseurs de bout en bout.",
+        b3:"<strong>Reconception de corps de vanne en Inconel 718 :</strong> pilotage de la caractérisation microstructurale sur les voies fonderie, forgeage et fabrication additive, en corrélant microstructure et propriétés post-traitement thermique pour guider le choix du matériau en service à haute température.",
+        b4:"Transition réussie de la recherche académique vers la R&amp;D industrielle — adaptation rapide aux processus industriels et à la collaboration interfonctionnelle pour transformer l'expertise matériaux en solutions opérationnelles."
+      },
+      exp2: {
+        title:"Doctorant / Jeune Chercheur",
+        company:"I2M, Centre National de la Recherche Scientifique (CNRS)",
+        meta:"02/2020 — 08/2023 · Bordeaux, France · En collaboration avec l'Institut P', le LASIE et le MCAM (Australie)",
+        b1:"Évaluation de la fragilisation par l'hydrogène d'aciers inoxydables 316L, 304L et 17-4PH fabriqués par fusion laser sur lit de poudre, sous sollicitations en traction et en fatigue oligocyclique.",
+        b2:"Conception et réalisation d'un dispositif électrochimique couplé pour des essais de fatigue sous hydrogène, avec des essais mécaniques sous hydrogène gazeux haute pression, dans le cadre d'une collaboration entre trois laboratoires.",
+        b3:"Pilotage des achats de poudres métalliques et d'équipements de laboratoire de bout en bout — communication fournisseurs, devis et coordination — pour assurer le fonctionnement du laboratoire.",
+        b4:"Fabrication, usinage et caractérisation des échantillons, communication scientifique régulière des résultats, et encadrement d'étudiants de master et de stagiaires sur le projet."
+      },
+      education: { eyebrow:"Fig. 04 — Formation", heading:"Formation" },
+      edu1: { title:"Thèse — Science des Matériaux", note:"Recherche doctorale sur la fragilisation par l'hydrogène des aciers inoxydables fabriqués par fabrication additive, menée en collaboration avec l'Institut P', le LASIE et le MCAM (Australie)." },
+      edu2: { note:"Spécialisation : matériaux à haute température.", badge:"Parcours Matériaux Haute Température" },
+      projects: { eyebrow:"Fig. 05 — Recherche", heading:"Projets scientifiques", subhead:"Une suite de stages de recherche et de projets d'équipe qui ont façonné le travail de thèse et tout ce qui a suivi." },
+      p1: { title:"Stage PFE Master 2", desc:"Évaluation de la fragilisation par l'hydrogène des aciers inoxydables à basses températures." },
+      p2: { title:"Projet de Recherche Master", desc:"Étude de l'effet du sur-vieillissement sur le comportement en fluage de l'alliage Inconel 718 coulé." },
+      p3: { title:"Stage de Recherche Master 1", desc:"Étude du comportement en fluage par nanoindentation de l'époxy, de l'époxy vieilli et du polymère PEKK à haute température." },
+      p4: { title:"Réservoir Cryogénique d'Oxygène Liquide — Projet d'Équipe", desc:"Étude des modes de transfert thermique et des choix de matériaux pour réduire les pertes par évaporation et optimiser la conception du réservoir. Lauréat du Grand Prix Ariane du meilleur projet." },
+      p5: { meta:"11/2016 — 04/2017 · Stage de fin d'études, diplôme d'ingénierie aéronautique", title:"Émission Acoustique dans les Composites Stratifiés", desc:"Étude du comportement en émission acoustique de composites à fibres de verre soumis à un impact de faible intensité." },
+      publications: { eyebrow:"Fig. 06 — Publications", heading:"Publications" },
+      pub: { meta:"Actes de conférence · 2022" },
+      certificates: { eyebrow:"Fig. 07 — Certifications", heading:"Certifications" },
+      cert1: { desc:"Programme de développement du leadership proposé par Capgemini en collaboration avec Harvard Business Review." },
+      cert2: { desc:"Certification débutante en durabilité, pensée systémique, écoconception, analyse du cycle de vie et sources d'énergie durables." },
+      contact: { eyebrow:"Fig. 08 — Contact", heading:"Parlons matériaux.", paragraph:"Ouvert aux échanges sur les matériaux aérospatiaux, les postes en R&amp;D, ou une collaboration sur la caractérisation et la fragilisation par l'hydrogène. Le plus rapide pour me joindre reste l'email." },
+      footer: { text:"© 2026 Rahul Subramanian Girija — Conçu à l'image d'un joint de grains." }
+    }
+  };
+
+  function getPath(obj, path){
+    return path.split('.').reduce((o, k) => (o && o[k] !== undefined) ? o[k] : null, obj);
+  }
+
+  let currentLang = 'en';
+
+  function applyLanguage(lang){
+    const dict = translations[lang];
+    if(!dict) return;
+    currentLang = lang;
+    document.getElementById('htmlRoot').setAttribute('lang', lang);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const val = getPath(dict, el.getAttribute('data-i18n'));
+      if(val !== null) el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const val = getPath(dict, el.getAttribute('data-i18n-html'));
+      if(val !== null) el.innerHTML = val;
+    });
+
+    document.getElementById('langEnBtn').classList.toggle('active', lang === 'en');
+    document.getElementById('langFrBtn').classList.toggle('active', lang === 'fr');
+
+    try{ localStorage.setItem('portfolio-lang', lang); }catch(e){}
+  }
+
+  document.getElementById('langEnBtn').addEventListener('click', () => applyLanguage('en'));
+  document.getElementById('langFrBtn').addEventListener('click', () => applyLanguage('fr'));
+
+  // Initialize language: saved preference, else browser language, else English
+  (function initLang(){
+    let saved = null;
+    try{ saved = localStorage.getItem('portfolio-lang'); }catch(e){}
+    if(saved === 'en' || saved === 'fr'){
+      applyLanguage(saved);
+    } else if(navigator.language && navigator.language.toLowerCase().startsWith('fr')){
+      applyLanguage('fr');
+    } else {
+      applyLanguage('en');
+    }
+  })();
+
   // ---------- Mobile nav toggle ----------
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -1125,7 +1376,6 @@
       const offsetX = reduceMotion ? 0 : (mouseX - w/2) * 0.01;
       const offsetY = reduceMotion ? 0 : (mouseY - h/2) * 0.01;
 
-      // connect each point to its 2-3 nearest neighbors
       for (let i = 0; i < points.length; i++){
         const p = points[i];
         const neighbors = points
