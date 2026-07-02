@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul Subramanian Girija — Materials Scientist</title>
+<meta name="description" content="Portfolio of Rahul Subramanian Girija, PhD — Materials Scientist specializing in aerospace materials, hydrogen embrittlement, and materials characterization.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,6 90,28 90,72 50,94 10,72 10,28' fill='%230E7C6B'/%3E%3Cpolygon points='50,6 90,28 50,50 10,28' fill='%231FA3AE'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6FAF8;
+    --surface:#FFFFFF;
+    --surface-2:#EDF5F1;
+    --ink:#122622;
+    --ink-soft:#526661;
+    --ink-faint:#8FA19B;
+    --teal:#0E7C6B;
+    --teal-dark:#0B5F52;
+    --cyan:#1FA3AE;
+    --coral:#E8998C;
+    --coral-soft:#F7DED8;
+    --line:#DCE9E3;
+    --radius:14px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  ::selection{ background:var(--coral-soft); color:var(--teal-dark); }
+
+  :focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(246,250,248,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:16px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-mark{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    letter-spacing:0.04em;
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:500;
+  }
+  .nav-mark svg{ width:22px; height:22px; }
+  nav.links{ display:flex; gap:28px; }
+  nav.links a{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink-soft);
+    position:relative;
+    padding-bottom:4px;
+    transition:color .2s ease;
+  }
+  nav.links a:hover{ color:var(--teal-dark); }
+  nav.links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0%;
+    height:2px;
+    background:var(--coral);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{ width:100%; }
+
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:8px 10px;
+    cursor:pointer;
+    font-family:var(--font-mono);
+    font-size:12px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:96px 0 88px;
+    border-bottom:1px solid var(--line);
+  }
+  #meshCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:1;
+  }
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal-dark);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--coral);
+    display:inline-block;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(38px, 6vw, 68px);
+    line-height:1.04;
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero h1 .accent{ color:var(--teal); }
+  .hero .role{
+    font-family:var(--font-display);
+    font-size:clamp(17px, 2vw, 21px);
+    color:var(--ink-soft);
+    margin:0 0 26px;
+  }
+  .hero p.tagline{
+    max-width:52ch;
+    color:var(--ink-soft);
+    font-size:16px;
+    margin:0 0 34px;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 22px;
+    margin-bottom:38px;
+  }
+  .contact-row a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    font-size:14px;
+    color:var(--ink);
+    font-family:var(--font-mono);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .contact-row a:hover{ color:var(--teal-dark); border-color:var(--teal-dark); }
+  .contact-row svg{ width:15px; height:15px; stroke:var(--teal); flex-shrink:0; }
+
+  .stat-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .stat-chip{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:9px 18px;
+    font-size:13px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .stat-chip .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--coral);
+    flex-shrink:0;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:84px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{
+    margin-bottom:44px;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-size:clamp(26px, 3.4vw, 36px);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .section-sub{
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin-top:10px;
+    font-size:15px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .about-grid p{ color:var(--ink-soft); font-size:16px; margin:0 0 16px; }
+  .lang-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px;
+  }
+  .lang-card h3{
+    font-family:var(--font-mono);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--ink-faint);
+    margin:0 0 20px;
+  }
+  .lang-item{ margin-bottom:18px; }
+  .lang-item:last-child{ margin-bottom:0; }
+  .lang-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    margin-bottom:8px;
+  }
+  .lang-top .level{ color:var(--ink-faint); font-family:var(--font-mono); font-size:12px; }
+  .lang-bar{
+    height:6px;
+    background:var(--surface-2);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .lang-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--teal), var(--cyan));
+    border-radius:4px;
+    transition:width 1.1s cubic-bezier(.2,.8,.2,1);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .filter-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:28px;
+  }
+  .filter-btn{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    background:var(--surface);
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    padding:9px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .filter-btn:hover{ border-color:var(--teal); color:var(--teal-dark); }
+  .filter-btn.active{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:#fff;
+  }
+  .skill-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .skill-tag{
+    font-size:13.5px;
+    padding:9px 16px;
+    border-radius:9px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    color:var(--ink);
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .skill-tag[data-cat="characterization"]{ border-left:3px solid var(--teal); }
+  .skill-tag[data-cat="numerical"]{ border-left:3px solid var(--cyan); }
+  .skill-tag[data-cat="domain"]{ border-left:3px solid var(--coral); }
+  .skill-tag[data-cat="soft"]{ border-left:3px solid var(--ink-faint); }
+  .skill-tag.hidden{
+    display:none;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .exp-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .exp-head{
+    width:100%;
+    background:none;
+    border:none;
+    text-align:left;
+    padding:26px 28px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    font-family:inherit;
+  }
+  .exp-head:hover{ background:var(--surface-2); }
+  .exp-title-block h3{
+    font-family:var(--font-display);
+    font-size:19px;
+    margin:0 0 4px;
+  }
+  .exp-title-block .company{
+    color:var(--teal-dark);
+    font-size:14.5px;
+    font-weight:600;
+  }
+  .exp-meta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    margin-top:6px;
+    letter-spacing:0.02em;
+  }
+  .exp-toggle-icon{
+    flex-shrink:0;
+    width:30px; height:30px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:transform .3s ease;
+  }
+  .exp-card.open .exp-toggle-icon{ transform:rotate(45deg); border-color:var(--coral); }
+  .exp-toggle-icon svg{ width:13px; height:13px; stroke:var(--teal-dark); }
+
+  .exp-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+  }
+  .exp-card.open .exp-body{ max-height:900px; }
+  .exp-body-inner{
+    padding:0 28px 28px;
+  }
+  .exp-body-inner ul{
+    margin:0;
+    padding-left:0;
+    list-style:none;
+  }
+  .exp-body-inner li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:14px;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+  .exp-body-inner li:last-child{ margin-bottom:0; }
+  .exp-body-inner li::before{
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width:8px; height:8px;
+    border-radius:2px;
+    background:var(--cyan);
+  }
+  .exp-body-inner strong{ color:var(--ink); }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .edu-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .edu-card h3{
+    font-family:var(--font-display);
+    font-size:18px;
+    margin:0 0 6px;
+  }
+  .edu-card .school{ color:var(--teal-dark); font-weight:600; font-size:14.5px; }
+  .edu-card .meta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    margin:8px 0 14px;
+  }
+  .edu-card .note{
+    font-size:14px; color:var(--ink-soft);
+  }
+  .badge-pill{
+    display:inline-block;
+    margin-top:12px;
+    background:var(--coral-soft);
+    color:var(--teal-dark);
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    padding:5px 12px;
+    border-radius:999px;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:18px;
+  }
+  .project-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 26px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .project-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 32px -18px rgba(14,124,107,0.35);
+    border-color:var(--teal);
+  }
+  .project-card .meta{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    letter-spacing:0.03em;
+    margin-bottom:10px;
+  }
+  .project-card h3{
+    font-family:var(--font-display);
+    font-size:16.5px;
+    margin:0 0 8px;
+    line-height:1.3;
+  }
+  .project-card p{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .project-card.highlight{
+    border-color:var(--coral);
+    background:linear-gradient(180deg, #FFFFFF 0%, var(--coral-soft) 220%);
+  }
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:3px solid var(--teal);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .pub-card .meta{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:12px;
+  }
+  .pub-card h3{
+    font-family:var(--font-display);
+    font-size:18px;
+    margin:0 0 10px;
+    line-height:1.4;
+  }
+  .pub-card .authors{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  .pub-card .venue{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--teal-dark);
+  }
+
+  /* ---------- CERTIFICATES ---------- */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  .cert-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 26px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .cert-icon{
+    width:38px; height:38px;
+    flex-shrink:0;
+    border-radius:9px;
+    background:var(--surface-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .cert-icon svg{ width:18px; height:18px; stroke:var(--teal-dark); }
+  .cert-card h3{
+    font-family:var(--font-display);
+    font-size:15.5px;
+    margin:0 0 6px;
+  }
+  .cert-card .meta{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    margin-bottom:8px;
+  }
+  .cert-card p{ font-size:13.5px; color:var(--ink-soft); margin:0; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-section{
+    background:var(--surface-2);
+  }
+  .contact-box{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:56px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .contact-box::before{
+    content:"";
+    position:absolute;
+    top:-60px; right:-60px;
+    width:200px; height:200px;
+    background:radial-gradient(circle, var(--coral-soft) 0%, transparent 70%);
+  }
+  .contact-box h2{
+    font-family:var(--font-display);
+    font-size:clamp(24px, 3.6vw, 34px);
+    margin:0 0 14px;
+    position:relative;
+  }
+  .contact-box p{
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 auto 30px;
+    position:relative;
+  }
+  .mailto-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--teal);
+    color:#fff;
+    text-decoration:none;
+    font-family:var(--font-mono);
+    font-size:14px;
+    letter-spacing:0.03em;
+    padding:16px 28px;
+    border-radius:10px;
+    transition:background .2s ease, transform .2s ease;
+    position:relative;
+  }
+  .mailto-btn:hover{ background:var(--teal-dark); transform:translateY(-2px); }
+  .mailto-btn svg{ width:17px; height:17px; }
+
+  .contact-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:26px;
+    margin-top:30px;
+    position:relative;
+  }
+  .contact-links a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-size:13.5px;
+    font-family:var(--font-mono);
+    transition:color .2s ease;
+  }
+  .contact-links a:hover{ color:var(--teal-dark); }
+  .contact-links svg{ width:15px; height:15px; stroke:var(--teal); }
+
+  footer{
+    padding:32px 0 48px;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-faint);
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px){
+    .about-grid{ grid-template-columns:1fr; }
+    .project-grid{ grid-template-columns:1fr; }
+    .edu-grid{ grid-template-columns:1fr; }
+    .cert-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 720px){
+    nav.links{
+      position:fixed;
+      top:64px; left:0; right:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      padding:18px 32px 24px;
+      gap:16px;
+      display:none;
+    }
+    nav.links.open{ display:flex; }
+    .nav-toggle{ display:block; }
+    .wrap{ padding:0 20px; }
+    .hero{ padding:64px 0 56px; }
+    section{ padding:60px 0; }
+    .contact-box{ padding:36px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="#0E7C6B"/><polygon points="50,6 90,28 50,50 10,28" fill="#1FA3AE"/></svg>
+      RSG // PORTFOLIO
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <canvas id="meshCanvas"></canvas>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Portfolio — Materials Science</span>
+    <h1>Rahul Subramanian<br><span class="accent">Girija</span>, PhD</h1>
+    <p class="role">Materials Scientist — Aerospace R&amp;D</p>
+    <p class="tagline">I work at the boundary between microstructure and performance — characterizing, testing, and troubleshooting the materials that go into tier-1 aerospace hardware, from brazed heat exchangers to hydrogen-exposed stainless steels.</p>
+
+    <div class="contact-row">
+      <a href="mailto:rahulsg96@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>rahulsg96@gmail.com</a>
+      <a href="tel:+33767493412"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+33 (0)7 67 49 34 12</a>
+      <a href="https://linkedin.com/in/rahulsg96" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/rahulsg96</a>
+      <span><svg style="width:15px;height:15px;stroke:#0E7C6B;display:inline;vertical-align:-2px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;">Toulouse, France</span></span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-chip"><span class="dot"></span>PhD, Materials Science — I2M / CNRS</div>
+      <div class="stat-chip"><span class="dot"></span>Tier-1 aerospace supplier — Liebherr Aerospace</div>
+      <div class="stat-chip"><span class="dot"></span>Bilingual — English &amp; French</div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 01 — About</span>
+      <h2>Grounded in the microstructure, built for the application</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I'm a materials scientist with a PhD and specialized expertise in advanced materials for aerospace applications, currently working as a Scientific Specialist for the Materials and Special Processes team at Liebherr Aerospace Toulouse, through Capgemini Engineering.</p>
+        <p>My track record spans R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. Before that, my PhD work at I2M (CNRS) took a deep dive into hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration.</p>
+        <p>I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.</p>
+      </div>
+      <div class="lang-card reveal">
+        <h3>Languages</h3>
+        <div class="lang-item">
+          <div class="lang-top"><span>English</span><span class="level">Native / Bilingual</span></div>
+          <div class="lang-bar"><div class="lang-fill" data-width="100"></div></div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-top"><span>French</span><span class="level">Full Professional</span></div>
+          <div class="lang-bar"><div class="lang-fill" data-width="90"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 02 — Capabilities</span>
+      <h2>Skills &amp; technical knowledge</h2>
+      <p class="section-sub">Filter by category to see where each capability sits — from hands-on characterization work to the numerical tools and domain expertise behind it.</p>
+    </div>
+
+    <div class="filter-row reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="characterization">Characterization</button>
+      <button class="filter-btn" data-filter="numerical">Numerical &amp; Simulation</button>
+      <button class="filter-btn" data-filter="domain">Domain Expertise</button>
+      <button class="filter-btn" data-filter="soft">Soft Skills &amp; Tools</button>
+    </div>
+
+    <div class="skill-grid reveal" id="skillGrid">
+      <!-- characterization -->
+      <span class="skill-tag" data-cat="characterization">Microscopy</span>
+      <span class="skill-tag" data-cat="characterization">SEM</span>
+      <span class="skill-tag" data-cat="characterization">TEM</span>
+      <span class="skill-tag" data-cat="characterization">XRD</span>
+      <span class="skill-tag" data-cat="characterization">EBSD</span>
+      <span class="skill-tag" data-cat="characterization">EDS</span>
+      <span class="skill-tag" data-cat="characterization">X-ray Tomography</span>
+      <span class="skill-tag" data-cat="characterization">AFM</span>
+      <span class="skill-tag" data-cat="characterization">TDS</span>
+      <span class="skill-tag" data-cat="characterization">GD-OES</span>
+      <span class="skill-tag" data-cat="characterization">Mechanical Testing</span>
+      <span class="skill-tag" data-cat="characterization">Alicona</span>
+      <span class="skill-tag" data-cat="characterization">Keyence</span>
+      <!-- numerical -->
+      <span class="skill-tag" data-cat="numerical">OIM Analysis</span>
+      <span class="skill-tag" data-cat="numerical">ATEX</span>
+      <span class="skill-tag" data-cat="numerical">FEM</span>
+      <span class="skill-tag" data-cat="numerical">Zebulon</span>
+      <span class="skill-tag" data-cat="numerical">Meshlab</span>
+      <span class="skill-tag" data-cat="numerical">Gmsh</span>
+      <span class="skill-tag" data-cat="numerical">AutoCAD</span>
+      <span class="skill-tag" data-cat="numerical">CATIA</span>
+      <span class="skill-tag" data-cat="numerical">Autodesk Inventor</span>
+      <span class="skill-tag" data-cat="numerical">Python</span>
+      <span class="skill-tag" data-cat="numerical">MATLAB</span>
+      <span class="skill-tag" data-cat="numerical">Materialise MAGICS</span>
+      <span class="skill-tag" data-cat="numerical">Avizo</span>
+      <!-- domain -->
+      <span class="skill-tag" data-cat="domain">Materials Science</span>
+      <span class="skill-tag" data-cat="domain">Metal Additive Manufacturing</span>
+      <span class="skill-tag" data-cat="domain">Fatigue of Metals</span>
+      <span class="skill-tag" data-cat="domain">Corrosion</span>
+      <span class="skill-tag" data-cat="domain">Hydrogen Embrittlement</span>
+      <span class="skill-tag" data-cat="domain">Heat Exchangers</span>
+      <span class="skill-tag" data-cat="domain">Process Optimization</span>
+      <span class="skill-tag" data-cat="domain">Experimental Investigation</span>
+      <span class="skill-tag" data-cat="domain">Project Management</span>
+      <span class="skill-tag" data-cat="domain">Market Research</span>
+      <span class="skill-tag" data-cat="domain">Scientific Research</span>
+      <!-- soft -->
+      <span class="skill-tag" data-cat="soft">Scientific Writing</span>
+      <span class="skill-tag" data-cat="soft">Technical Presentation</span>
+      <span class="skill-tag" data-cat="soft">Problem Solving</span>
+      <span class="skill-tag" data-cat="soft">Team Work</span>
+      <span class="skill-tag" data-cat="soft">Listening</span>
+      <span class="skill-tag" data-cat="soft">Transparency</span>
+      <span class="skill-tag" data-cat="soft">Empathy</span>
+      <span class="skill-tag" data-cat="soft">Origin Pro</span>
+      <span class="skill-tag" data-cat="soft">Office 365</span>
+      <span class="skill-tag" data-cat="soft">LaTeX</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 03 — Experience</span>
+      <h2>Work experience</h2>
+      <p class="section-sub">Click a role to expand the details.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="exp-card reveal open">
+        <button class="exp-head" aria-expanded="true">
+          <div class="exp-title-block">
+            <h3>Mechanical and Physical Engineer</h3>
+            <div class="company">Capgemini Engineering — embedded at Liebherr Aerospace Toulouse</div>
+            <div class="exp-meta">04/2024 — Present · Toulouse, France · Scientific Specialist, Materials &amp; Special Processes</div>
+          </div>
+          <span class="exp-toggle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <ul>
+              <li><strong>Compact aluminium heat exchangers (Next Single Aisle):</strong> solved a brazing-joint quality issue on 80 µm fins by tracing clad diffusion through extensive microstructural analysis — findings that led to a change in Liebherr's fin-forming process.</li>
+              <li><strong>Graphite seal rings for valves:</strong> built an ASTM-compliant material characterization framework and supplier qualification protocol, giving the team an end-to-end path to evaluate and select vendors.</li>
+              <li><strong>Inconel 718 valve body redesign:</strong> led microstructural characterization across casting, forging, and additive manufacturing routes, linking microstructure to post-heat-treatment properties to guide material selection for high-temperature service.</li>
+              <li>Made the transition from academic research to corporate R&amp;D — adapting quickly to industry workflows and cross-functional collaboration to turn material insight into implemented solutions.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <button class="exp-head" aria-expanded="false">
+          <div class="exp-title-block">
+            <h3>PhD / Young Researcher</h3>
+            <div class="company">I2M, National Centre for Scientific Research (CNRS)</div>
+            <div class="exp-meta">02/2020 — 08/2023 · Bordeaux, France · With Institut P', LASIE &amp; MCAM (Australia)</div>
+          </div>
+          <span class="exp-toggle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="exp-body">
+          <div class="exp-body-inner">
+            <ul>
+              <li>Investigated hydrogen embrittlement in laser powder-bed-fusion 316L, 304L, and 17-4PH stainless steels under tensile and high-cycle fatigue loading.</li>
+              <li>Designed and built a coupled fatigue–hydrogen electrochemical testing rig, running high-pressure hydrogen gas mechanical tests as part of a three-lab collaboration.</li>
+              <li>Managed procurement of powders and lab equipment end-to-end — supplier communication, quoting, and coordination — to keep the lab running.</li>
+              <li>Fabricated, machined, and characterized specimens, communicated results regularly, and mentored Master's students and interns on the project.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 04 — Education</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <h3>PhD — Materials Science</h3>
+        <div class="school">HESAM University · ENSAM · Institut de Mécanique et d'Ingénierie (I2M)</div>
+        <div class="meta">02/2020 — 02/2024 · Bordeaux, France</div>
+        <p class="note">Doctoral research on hydrogen embrittlement in additively manufactured stainless steels, conducted in collaboration with Institut P', LASIE, and MCAM (Australia).</p>
+      </div>
+      <div class="edu-card reveal">
+        <h3>Master — Aeronautical Mechanics &amp; Energetics (AME)</h3>
+        <div class="school">ISAE-ENSMA — École Nationale Supérieure de Mécanique et d'Aérotechnique</div>
+        <div class="meta">09/2017 — 09/2019 · Poitiers, France</div>
+        <p class="note">Specialisation in high-temperature materials.</p>
+        <span class="badge-pill">High-Temperature Materials Track</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 05 — Research</span>
+      <h2>Scientific projects</h2>
+      <p class="section-sub">A run of research internships and team projects that shaped the PhD work and everything since.</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-card reveal">
+        <div class="meta">04/2019 — 10/2019 · Institut P' / UGITECH</div>
+        <h3>Master-2 Research Internship</h3>
+        <p>Assessed hydrogen embrittlement in stainless steels at low temperatures.</p>
+      </div>
+      <div class="project-card reveal">
+        <div class="meta">09/2018 — 02/2019 · Safran Aircraft Engines</div>
+        <h3>Master's Research Project</h3>
+        <p>Studied the effect of over-aging on the creep behaviour of cast Inconel 718 alloy.</p>
+      </div>
+      <div class="project-card reveal">
+        <div class="meta">04/2018 — 10/2018 · Institut P' / ANR ImPEKKable</div>
+        <h3>Master-1 Research Internship</h3>
+        <p>Characterized nanoindentation creep behaviour of epoxy, aged epoxy, and PEKK polymer at high temperatures.</p>
+      </div>
+      <div class="project-card highlight reveal">
+        <div class="meta">11/2017 — 07/2018 · Student Aerospace Challenge '18</div>
+        <h3>Cryogenic Liquid Oxygen Tank — Team Project</h3>
+        <p>Studied heat transfer modes and material choices to reduce vaporisation losses and improve tank design. Awarded the Ariane Grand Prize for Best Project.</p>
+      </div>
+      <div class="project-card reveal">
+        <div class="meta">11/2016 — 04/2017 · Bachelor Final Year Internship</div>
+        <h3>Acoustic Emission in Composite Laminates</h3>
+        <p>Investigated the acoustic emission behaviour of glass-fibre composite laminates subject to small-scale impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 06 — Publications</span>
+      <h2>Publications</h2>
+    </div>
+    <div class="pub-card reveal">
+      <div class="meta">Conference Proceedings · 2022</div>
+      <h3>Assessment of the influence of hydrogen on the fatigue life of selective laser melted 316L austenitic stainless steels</h3>
+      <div class="authors">Subramanian Girija, et al. — with Nicolas Saintier, Gilbert Hénaff, Isabelle Aubert, Mohamed El May, Abdelali Oudriss, Xavier Feaugas</div>
+      <div class="venue">International Conference on Metals and Hydrogen — Steelyhydrogen</div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 07 — Certifications</span>
+      <h2>Certificates</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div>
+          <h3>Emerging Leaders Program — Grade B</h3>
+          <div class="meta">06/2025 — 07/2025</div>
+          <p>Leadership development program offered by Capgemini in collaboration with Harvard Business Review.</p>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div>
+          <h3>Sustainability for Products &amp; Systems Engineers</h3>
+          <div class="meta">08/2025 — 09/2025</div>
+          <p>Beginner course on sustainability, systems thinking, eco-design, life-cycle analysis, and sustainable energy sources.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fig. 08 — Contact</span>
+    </div>
+    <div class="contact-box reveal">
+      <h2>Let's talk materials.</h2>
+      <p>Open to conversations about aerospace materials, R&amp;D roles, or collaboration on characterization and hydrogen-embrittlement work. The fastest way to reach me is email.</p>
+      <a class="mailto-btn" href="mailto:rahulsg96@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        rahulsg96@gmail.com
+      </a>
+      <div class="contact-links">
+        <a href="tel:+33767493412"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+33 (0)7 67 49 34 12</a>
+        <a href="https://linkedin.com/in/rahulsg96" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/rahulsg96</a>
+        <a href="#top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Toulouse, France</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Rahul Subramanian Girija — Built with grain boundaries in mind.
+</footer>
+
+<script>
+  // ---------- Mobile nav toggle ----------
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // ---------- Experience accordion ----------
+  document.querySelectorAll('.exp-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.exp-card');
+      const willOpen = !card.classList.contains('open');
+      card.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen);
+    });
+  });
+
+  // ---------- Skill filter ----------
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const skillTags = document.querySelectorAll('.skill-tag');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      skillTags.forEach(tag => {
+        const show = filter === 'all' || tag.dataset.cat === filter;
+        tag.classList.toggle('hidden', !show);
+      });
+    });
+  });
+
+  // ---------- Scroll reveal ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ---------- Language bar fill on view ----------
+  const langFills = document.querySelectorAll('.lang-fill');
+  const langObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.dataset.width + '%';
+        langObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  langFills.forEach(el => langObserver.observe(el));
+
+  // ---------- Hero grain-boundary mesh ----------
+  (function(){
+    const canvas = document.getElementById('meshCanvas');
+    const ctx = canvas.getContext('2d');
+    const hero = document.querySelector('.hero');
+    let points = [];
+    let mouseX = 0, mouseY = 0;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize(){
+      const rect = hero.getBoundingClientRect();
+      canvas.width = rect.width * devicePixelRatio;
+      canvas.height = rect.height * devicePixelRatio;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      generatePoints(rect.width, rect.height);
+    }
+
+    function generatePoints(w, h){
+      points = [];
+      const count = Math.max(18, Math.floor((w * h) / 32000));
+      for (let i = 0; i < count; i++){
+        points.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 1.4 + Math.random() * 1.6
+        });
+      }
+    }
+
+    function dist(a, b){
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function draw(){
+      const w = canvas.width / devicePixelRatio;
+      const h = canvas.height / devicePixelRatio;
+      ctx.clearRect(0, 0, w, h);
+
+      const offsetX = reduceMotion ? 0 : (mouseX - w/2) * 0.01;
+      const offsetY = reduceMotion ? 0 : (mouseY - h/2) * 0.01;
+
+      // connect each point to its 2-3 nearest neighbors
+      for (let i = 0; i < points.length; i++){
+        const p = points[i];
+        const neighbors = points
+          .map((q, idx) => ({ idx, d: dist(p, q) }))
+          .filter(o => o.idx !== i)
+          .sort((a,b) => a.d - b.d)
+          .slice(0, 3);
+
+        neighbors.forEach(n => {
+          const q = points[n.idx];
+          const opacity = Math.max(0.03, 0.16 - n.d / 2400);
+          ctx.strokeStyle = `rgba(14, 124, 107, ${opacity})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x + offsetX, p.y + offsetY);
+          ctx.lineTo(q.x + offsetX, q.y + offsetY);
+          ctx.stroke();
+        });
+      }
+
+      points.forEach(p => {
+        ctx.fillStyle = 'rgba(31, 163, 174, 0.35)';
+        ctx.beginPath();
+        ctx.arc(p.x + offsetX, p.y + offsetY, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function loop(){
+      draw();
+      if (!reduceMotion) requestAnimationFrame(loop);
+    }
+
+    window.addEventListener('resize', resize);
+    if (!reduceMotion){
+      window.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+      });
+    }
+
+    resize();
+    if (reduceMotion) draw(); else loop();
+  })();
+</script>
+
+</body>
+</html>
