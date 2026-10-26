@@ -471,7 +471,7 @@
         <div class="lang-item"><span class="name" data-i18n="about.lang2Name">French</span><span class="level" data-i18n="about.lang2Level">Full Professional</span></div>
       </div>
       <div class="about-text">
-        <p data-i18n="about.p1">I'm a structural modelling and simulation engineer at Design Tech Centre in Paris, with a PhD in materials science and a background in aerospace materials R&amp;D.</p>
+        <p data-i18n="about.p1">I'm a structural modelling and simulation engineer at Design Tech Centre in Paris, where I design and analyse components for small, innovative aircraft powered by new energy sources — backed by a PhD in materials science and a background in aerospace materials R&amp;D.</p>
         <p data-i18n="about.p2">Before moving into simulation, my work was hands-on: a PhD at I2M (CNRS) on hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration — followed by R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. That background shapes how I build, and question, a model.</p>
         <p data-i18n="about.p3">I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.</p>
         <p data-i18n="about.p4">I also build with AI. I'm automating my FEA pipeline with Python and Claude Code, and this portfolio — including the live wing-rib analysis above — was built the same way.</p>
@@ -530,6 +530,11 @@
         <!-- domain -->
         <span class="skill-tag" data-cat="domain" data-i18n="skill.structsim">Structural Simulation (FEA)</span>
         <span class="skill-tag" data-cat="domain" data-i18n="skill.feaauto">FEA Automation</span>
+        <span class="skill-tag" data-cat="domain" data-i18n="skill.nonlinear">Nonlinear Analysis</span>
+        <span class="skill-tag" data-cat="domain" data-i18n="skill.buckling">Buckling &amp; Modal Analysis</span>
+        <span class="skill-tag" data-cat="domain" data-i18n="skill.thermal">Thermal Analysis</span>
+        <span class="skill-tag" data-cat="domain" data-i18n="skill.parametric">Parametric Studies</span>
+        <span class="skill-tag" data-cat="domain" data-i18n="skill.mechdesign">Mechanical Design</span>
         <span class="skill-tag" data-cat="domain" data-i18n="skill.materialsscience">Materials Science</span>
         <span class="skill-tag" data-cat="domain" data-i18n="skill.additive">Metal Additive Manufacturing</span>
         <span class="skill-tag" data-cat="domain" data-i18n="skill.fatigue">Fatigue of Metals</span>
@@ -571,8 +576,10 @@
         <h3>Structural Modelling and Simulation Engineer</h3>
         <div class="org">Design Tech Centre — Paris</div>
         <ul class="bullets">
-          <li data-i18n-html="exp0.b1"><strong>Structural modelling &amp; simulation:</strong> finite-element analysis of aerospace structures in Abaqus, working from CATIA geometry.</li>
-          <li data-i18n-html="exp0.b2"><strong>FEA automation:</strong> building an automated FEA pipeline with Python and Claude Code to cut the manual steps between modelling, solving, and post-processing.</li>
+          <li data-i18n-html="exp0.b1"><strong>Structural analysis:</strong> static, nonlinear, buckling, modal, and thermal finite-element analyses in Abaqus, working from CATIA geometry.</li>
+          <li data-i18n-html="exp0.b2"><strong>Design to specification:</strong> responding to customer specifications (<em>cahiers des charges</em>) for the mechanical design of aircraft components — mostly small, innovative light aircraft powered by new energy sources.</li>
+          <li data-i18n-html="exp0.b3"><strong>Automated FEA pipeline (Python + Claude Code):</strong> problem definition, CAD generation, Abaqus input files (.inp) written through Abaqus/CAE, parametric studies, and data post-processing — through to automatically built slide decks and interactive viewers of the simulated product.</li>
+          <li data-i18n-html="exp0.b4"><strong>Prompt to product:</strong> an end-to-end digital design workflow that goes from a written prompt to a thoroughly analysed product, delivered in an interactive viewer.</li>
         </ul>
       </div>
     </article>
@@ -587,7 +594,7 @@
           <li data-i18n-html="exp1.b1"><strong>Compact aluminium heat exchangers (Next Single Aisle):</strong> solved a brazing-joint quality issue on 80 µm fins by tracing clad diffusion through extensive microstructural analysis — findings that led to a change in Liebherr's fin-forming process.</li>
           <li data-i18n-html="exp1.b2"><strong>Graphite seal rings for valves:</strong> built an ASTM-compliant material characterization framework and supplier qualification protocol, giving the team an end-to-end path to evaluate and select vendors.</li>
           <li data-i18n-html="exp1.b3"><strong>Inconel 718 valve body redesign:</strong> led microstructural characterization across casting, forging, and additive manufacturing routes, linking microstructure to post-heat-treatment properties to guide material selection for high-temperature service.</li>
-          <li data-i18n-html="exp1.b4">Made the transition from academic research to corporate R&amp;D — adapting quickly to industry workflows and cross-functional collaboration to turn material insight into implemented solutions.</li>
+          <li data-i18n-html="exp1.b4" data-cv="omit">Made the transition from academic research to corporate R&amp;D — adapting quickly to industry workflows and cross-functional collaboration to turn material insight into implemented solutions.</li>
         </ul>
       </div>
     </article>
@@ -601,7 +608,7 @@
         <ul class="bullets">
           <li data-i18n-html="exp2.b1">Investigated hydrogen embrittlement in laser powder-bed-fusion 316L, 304L, and 17-4PH stainless steels under tensile and high-cycle fatigue loading.</li>
           <li data-i18n-html="exp2.b2">Designed and built a coupled fatigue–hydrogen electrochemical testing rig, running high-pressure hydrogen gas mechanical tests as part of a three-lab collaboration.</li>
-          <li data-i18n-html="exp2.b3">Managed procurement of powders and lab equipment end-to-end — supplier communication, quoting, and coordination — to keep the lab running.</li>
+          <li data-i18n-html="exp2.b3" data-cv="omit">Managed procurement of powders and lab equipment end-to-end — supplier communication, quoting, and coordination — to keep the lab running.</li>
           <li data-i18n-html="exp2.b4">Fabricated, machined, and characterized specimens, communicated results regularly, and mentored Master's students and interns on the project.</li>
         </ul>
       </div>
@@ -773,7 +780,7 @@
       about: {
         eyebrow:"§ 01 — About",
         heading:"Grounded in the microstructure, built for the application",
-        p1:"I'm a structural modelling and simulation engineer at Design Tech Centre in Paris, with a PhD in materials science and a background in aerospace materials R&amp;D.",
+        p1:"I'm a structural modelling and simulation engineer at Design Tech Centre in Paris, where I design and analyse components for small, innovative aircraft powered by new energy sources — backed by a PhD in materials science and a background in aerospace materials R&amp;D.",
         p2:"Before moving into simulation, my work was hands-on: a PhD at I2M (CNRS) on hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration — followed by R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. That background shapes how I build, and question, a model.",
         p3:"I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.",
         p4:"I also build with AI. I'm automating my FEA pipeline with Python and Claude Code, and this portfolio — including the live wing-rib analysis above — was built the same way.",
@@ -790,14 +797,16 @@
       skill: {
         microscopy:"Microscopy", sem:"SEM", tem:"TEM", xrd:"XRD", ebsd:"EBSD", eds:"EDS", tomography:"X-ray Tomography", afm:"AFM", tds:"TDS", gdoes:"GD-OES", mechtesting:"Mechanical Testing", alicona:"Alicona", keyence:"Keyence",
         abaqus:"Abaqus", oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", claudecode:"Claude Code", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
-        structsim:"Structural Simulation (FEA)", feaauto:"FEA Automation", materialsscience:"Materials Science", additive:"Metal Additive Manufacturing", fatigue:"Fatigue of Metals", corrosion:"Corrosion", tribology:"Tribology", hydrogen:"Hydrogen Embrittlement", heatexchangers:"Heat Exchangers", processopt:"Process Optimization", experimental:"Experimental Investigation", projectmgmt:"Project Management", supplierEval:"Supplier Evaluation", marketresearch:"Market Research", scientificresearch:"Scientific Research",
+        structsim:"Structural Simulation (FEA)", feaauto:"FEA Automation", nonlinear:"Nonlinear Analysis", buckling:"Buckling &amp; Modal Analysis", thermal:"Thermal Analysis", parametric:"Parametric Studies", mechdesign:"Mechanical Design", materialsscience:"Materials Science", additive:"Metal Additive Manufacturing", fatigue:"Fatigue of Metals", corrosion:"Corrosion", tribology:"Tribology", hydrogen:"Hydrogen Embrittlement", heatexchangers:"Heat Exchangers", processopt:"Process Optimization", experimental:"Experimental Investigation", projectmgmt:"Project Management", supplierEval:"Supplier Evaluation", marketresearch:"Market Research", scientificresearch:"Scientific Research",
         writing:"Scientific Writing", presentation:"Technical Presentation", problemsolving:"Problem Solving", teamwork:"Team Work", listening:"Listening", transparency:"Transparency", empathy:"Empathy", originpro:"Origin Pro", office365:"Office 365", latex:"LaTeX"
       },
       experience: { eyebrow:"§ 03 — Experience", heading:"Work experience" },
       exp0: {
         dates:"09/2026 — Present",
-        b1:"<strong>Structural modelling &amp; simulation:</strong> finite-element analysis of aerospace structures in Abaqus, working from CATIA geometry.",
-        b2:"<strong>FEA automation:</strong> building an automated FEA pipeline with Python and Claude Code to cut the manual steps between modelling, solving, and post-processing."
+        b1:"<strong>Structural analysis:</strong> static, nonlinear, buckling, modal, and thermal finite-element analyses in Abaqus, working from CATIA geometry.",
+        b2:"<strong>Design to specification:</strong> responding to customer specifications (<em>cahiers des charges</em>) for the mechanical design of aircraft components — mostly small, innovative light aircraft powered by new energy sources.",
+        b3:"<strong>Automated FEA pipeline (Python + Claude Code):</strong> problem definition, CAD generation, Abaqus input files (.inp) written through Abaqus/CAE, parametric studies, and data post-processing — through to automatically built slide decks and interactive viewers of the simulated product.",
+        b4:"<strong>Prompt to product:</strong> an end-to-end digital design workflow that goes from a written prompt to a thoroughly analysed product, delivered in an interactive viewer."
       },
       exp1: {
         company:"Capgemini Engineering — embedded at Liebherr Aerospace Toulouse",
@@ -855,7 +864,7 @@
       about: {
         eyebrow:"§ 01 — À propos",
         heading:"Ancré dans la microstructure, pensé pour l'application",
-        p1:"Je suis ingénieur en modélisation et simulation des structures au Design Tech Centre à Paris, titulaire d'un doctorat en science des matériaux, avec une expérience en R&amp;D matériaux aéronautique.",
+        p1:"Je suis ingénieur en modélisation et simulation des structures au Design Tech Centre à Paris, où je conçois et analyse des composants pour de petits aéronefs innovants propulsés par de nouvelles énergies — avec, en appui, un doctorat en science des matériaux et une expérience en R&amp;D matériaux aéronautique.",
         p2:"Avant la simulation, mon travail était expérimental : une thèse à l'I2M (CNRS) sur la fragilisation par l'hydrogène des aciers inoxydables fabriqués par fusion laser sur lit de poudre — combinant électrochimie, essais mécaniques et analyse microstructurale, en collaboration avec trois laboratoires — puis de la R&amp;D, de l'optimisation des procédés et de la caractérisation des matériaux au sein d'une chaîne d'approvisionnement aéronautique de rang 1. Ce parcours influence la façon dont je construis — et remets en question — un modèle.",
         p3:"J'aime les problèmes situés à l'intersection du procédé et de la propriété : pourquoi un joint casse, pourquoi une microstructure se fragilise, pourquoi une géométrie d'ailette ne se forme pas comme prévu sur le plan — puis trouver la solution qui sera réellement mise en œuvre.",
         p4:"Je construis aussi avec l'IA : j'automatise ma chaîne de calcul éléments finis avec Python et Claude Code, et ce portfolio — y compris l'analyse en direct de la nervure ci-dessus — a été réalisé de la même manière.",
@@ -872,14 +881,16 @@
       skill: {
         microscopy:"Microscopie", sem:"MEB", tem:"MET", xrd:"DRX", ebsd:"EBSD", eds:"EDS", tomography:"Tomographie X", afm:"AFM", tds:"TDS", gdoes:"GD-OES", mechtesting:"Essais mécaniques", alicona:"Alicona", keyence:"Keyence",
         abaqus:"Abaqus", oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", claudecode:"Claude Code", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
-        structsim:"Simulation Structurale (EF)", feaauto:"Automatisation des Calculs EF", materialsscience:"Sciences des Matériaux", additive:"Fabrication Additive Métallique", fatigue:"Fatigue des Métaux", corrosion:"Corrosion", tribology:"Tribologie", hydrogen:"Fragilisation par l'Hydrogène", heatexchangers:"Échangeurs de Chaleur", processopt:"Optimisation des Procédés", experimental:"Étude Expérimentale", projectmgmt:"Gestion de Projet", supplierEval:"Évaluation de Fournisseurs", marketresearch:"Étude de Marché", scientificresearch:"Recherche Scientifique",
+        structsim:"Simulation Structurale (EF)", feaauto:"Automatisation des Calculs EF", nonlinear:"Analyse Non Linéaire", buckling:"Flambement &amp; Analyse Modale", thermal:"Analyse Thermique", parametric:"Études Paramétriques", mechdesign:"Conception Mécanique", materialsscience:"Sciences des Matériaux", additive:"Fabrication Additive Métallique", fatigue:"Fatigue des Métaux", corrosion:"Corrosion", tribology:"Tribologie", hydrogen:"Fragilisation par l'Hydrogène", heatexchangers:"Échangeurs de Chaleur", processopt:"Optimisation des Procédés", experimental:"Étude Expérimentale", projectmgmt:"Gestion de Projet", supplierEval:"Évaluation de Fournisseurs", marketresearch:"Étude de Marché", scientificresearch:"Recherche Scientifique",
         writing:"Rédaction Scientifique", presentation:"Présentation Technique", problemsolving:"Résolution de Problèmes", teamwork:"Travail d'Équipe", listening:"Écoute Active", transparency:"Transparence", empathy:"Empathie", originpro:"Origin Pro", office365:"Office 365", latex:"LaTeX"
       },
       experience: { eyebrow:"§ 03 — Expérience", heading:"Expérience professionnelle" },
       exp0: {
         dates:"09/2026 — Aujourd'hui",
-        b1:"<strong>Modélisation et simulation des structures :</strong> analyses par éléments finis de structures aéronautiques sous Abaqus, à partir de la géométrie CATIA.",
-        b2:"<strong>Automatisation des calculs EF :</strong> développement d'une chaîne de calcul éléments finis automatisée avec Python et Claude Code, pour réduire les étapes manuelles entre modélisation, résolution et post-traitement."
+        b1:"<strong>Analyse des structures :</strong> calculs par éléments finis statiques, non linéaires, de flambement, modaux et thermiques sous Abaqus, à partir de la géométrie CATIA.",
+        b2:"<strong>Conception sur cahier des charges :</strong> réponse aux cahiers des charges pour la conception mécanique de composants d'aéronefs — le plus souvent de petits avions de loisir innovants, propulsés par de nouvelles énergies.",
+        b3:"<strong>Chaîne de calcul EF automatisée (Python + Claude Code) :</strong> de la définition du problème à la création de la CAO, l'écriture des fichiers d'entrée Abaqus (.inp) via Abaqus/CAE, les études paramétriques et le post-traitement des données — jusqu'à la génération automatique de présentations et de visualiseurs interactifs du produit simulé.",
+        b4:"<strong>Du prompt au produit :</strong> un scénario de conception numérique de bout en bout, d'une consigne écrite jusqu'à un produit final analysé en profondeur et présenté dans un visualiseur interactif."
       },
       exp1: {
         company:"Capgemini Engineering — en mission chez Liebherr Aerospace Toulouse",

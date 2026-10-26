@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page{size:A4;}
+  :root{
+    --ink:#1C1B18;
+    --ink-soft:#47433B;
+    --ink-faint:#736D5E;
+    --rule:#D6CFBE;
+    --accent:#9C3D1F;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --margin-col:25mm;
+    --gap:4.5mm;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{font-family:var(--sans);font-size:8.1pt;line-height:1.38;color:var(--ink);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ---------- Header ---------- */
+  .head{
+    display:grid;grid-template-columns:1fr 30mm;gap:8mm;align-items:end;
+    padding-bottom:4.5mm;border-bottom:.8pt solid var(--ink);
+  }
+  .kicker{font-family:var(--mono);font-size:6.8pt;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:2.6mm;}
+  h1{font-family:var(--serif);font-weight:300;font-size:29pt;line-height:1;letter-spacing:-.025em;}
+  h1 em{font-style:italic;color:var(--ink-soft);}
+  .tagline{font-family:var(--serif);font-weight:300;font-size:9.6pt;line-height:1.4;margin-top:2.6mm;}
+  .contact{display:flex;flex-wrap:wrap;gap:1mm 4.5mm;margin-top:3.6mm;font-family:var(--mono);font-size:7pt;color:var(--ink-soft);}
+  .contact a{border-bottom:.5pt solid var(--accent);}
+  .portrait img{
+    display:block;width:30mm;height:34mm;object-fit:cover;object-position:50% 30%;
+    filter:grayscale(1) contrast(1.05) sepia(.12);
+  }
+  .portrait figcaption{font-family:var(--mono);font-size:5.8pt;color:var(--ink-faint);margin-top:1.2mm;}
+  .portrait figcaption b{color:var(--ink);font-weight:500;}
+
+  .facts{display:grid;grid-template-columns:repeat(4, 1fr);border-bottom:.5pt solid var(--rule);}
+  .facts div{padding:2.4mm 3mm 2.6mm;}
+  .facts div:first-child{padding-left:0;}
+  .facts div + div{border-left:.5pt solid var(--rule);}
+  .facts small{display:block;margin-bottom:.8mm;font-family:var(--mono);font-size:5.8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
+  .facts span{font-family:var(--serif);font-size:9pt;line-height:1.25;}
+
+  /* ---------- Sections ---------- */
+  section{margin-top:4.2mm;}
+  h2{
+    font-family:var(--serif);font-weight:400;font-size:12.5pt;letter-spacing:-.01em;line-height:1.2;
+    padding-bottom:1.2mm;border-bottom:.8pt solid var(--ink);
+    break-after:avoid;
+  }
+  .entry, .row{
+    display:grid;grid-template-columns:var(--margin-col) minmax(0, 1fr);gap:var(--gap);
+    padding:1.9mm 0;border-bottom:.5pt solid var(--rule);break-inside:avoid;
+  }
+  .entry:last-child, .row:last-child{border-bottom:0;}
+  .when{font-family:var(--mono);font-size:6.8pt;line-height:1.55;color:var(--ink-soft);}
+  .when .loc{color:var(--ink-faint);}
+  .award{
+    display:inline-block;margin-top:1mm;padding:.4mm 1.3mm;
+    font-family:var(--mono);font-size:5.6pt;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;
+    background:var(--accent);color:#fff;
+  }
+  h3{font-family:var(--serif);font-weight:400;font-size:10.4pt;line-height:1.22;}
+  .cards{display:grid;grid-template-columns:1fr 1fr;column-gap:6mm;}
+  .card{padding:1.8mm 0;break-inside:avoid;}
+  .card:nth-child(n+3){border-top:.5pt solid var(--rule);}
+  .card .when{display:flex;align-items:center;gap:2mm;margin-bottom:.5mm;}
+  .card .award{margin-top:0;}
+  .card h3{font-size:9.4pt;}
+  .compact{padding:1.3mm 0;}
+  .compact h3{font-size:9.2pt;}
+  .org-inline{font-family:var(--sans);font-size:8pt;color:var(--accent);}
+  .pub h3{font-style:italic;}
+  .org{font-size:8pt;color:var(--accent);margin-top:.3mm;}
+  .sub{font-family:var(--mono);font-size:6.5pt;color:var(--ink-faint);margin-top:.3mm;}
+  ul{list-style:none;margin-top:1mm;}
+  li{padding-left:3.6mm;text-indent:-3.6mm;margin-top:.45mm;color:var(--ink-soft);}
+  li::before{content:"–";display:inline-block;width:3.6mm;text-indent:0;color:var(--accent);}
+  li strong{color:var(--ink);font-weight:600;}
+  .note{color:var(--ink-soft);margin-top:.6mm;}
+  .badge{
+    display:inline-block;margin-left:2mm;padding:.1mm 1.4mm;vertical-align:1px;
+    font-family:var(--mono);font-size:5.8pt;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--accent);border:.5pt solid currentColor;
+  }
+  .venue{font-family:var(--serif);font-style:italic;color:var(--accent);margin-top:.6mm;}
+  .row .label{font-family:var(--mono);font-size:6.4pt;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);padding-top:.3mm;}
+  .row .items{color:var(--ink-soft);font-size:7.9pt;}
+  .row .items span{white-space:nowrap;}
+  .row .items i{font-style:normal;color:var(--rule);}
+  .row .items b{color:var(--ink);font-weight:500;}
+</style>
+</head>
+<body>
+<script>
+  // Fills the CV from content extracted from the portfolio site (see build.js)
+  window.renderCV = function (d, site) {
+    document.documentElement.lang = d.lang;
+    document.title = d.name + ' — CV';
+    const parts = d.name.split(' '), last = parts.pop();
+    const siteLabel = site.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
+    const when = e => `<div class="when">${e.when.map((line, i) => `<div${i ? ' class="loc"' : ''}>${line}</div>`).join('')}${e.award ? `<span class="award">${e.award}</span>` : ''}</div>`;
+    const entry = (e, cls = '', compact = cls === 'compact') => `
+      <div class="entry ${cls}">
+        ${when(e)}
+        <div>
+          <h3>${e.title}${compact && e.org ? ` <span class="org-inline">· ${e.org}</span>` : ''}</h3>
+          ${!compact && e.org ? `<div class="org">${e.org}</div>` : ''}
+          ${e.sub ? `<div class="sub">${e.sub}</div>` : ''}
+          ${e.bullets.length ? `<ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
+          ${e.note ? `<p class="note">${e.note}${e.badge ? `<span class="badge">${e.badge}</span>` : ''}</p>` : ''}
+          ${e.authors ? `<p class="note">${e.authors}</p>` : ''}
+          ${e.venue ? `<p class="venue">${e.venue}</p>` : ''}
+        </div>
+      </div>`;
+    const section = (s, cls = '') => `<section><h2>${s.heading}</h2>${s.entries.map(e => entry(e, cls)).join('')}</section>`;
+    // Certificates sit two to a row
+    const card = e => `
+      <div class="card">
+        <div class="when"><span>${e.when.join(' · ')}</span>${e.award ? `<span class="award">${e.award}</span>` : ''}</div>
+        <h3>${e.title}</h3>
+        ${e.org ? `<div class="org">${e.org}</div>` : ''}
+        ${e.note ? `<p class="note">${e.note}</p>` : ''}
+      </div>`;
+    const cards = s => `<section><h2>${s.heading}</h2><div class="cards">${s.entries.map(card).join('')}</div></section>`;
+
+    // Simulation first: the CV leads with the current specialism
+    const order = ['numerical', 'domain', 'characterization', 'soft'];
+    const groups = order.map(k => d.skills.groups.find(g => g.key === k)).filter(Boolean);
+    // Each separator stays on the line of the item before it
+    const list = items => items.map((x, i) => `<span>${x}${i < items.length - 1 ? '&nbsp;<i>/</i>' : ''}</span>`).join(' ');
+    const skillRows = groups.map(g => `
+      <div class="row"><div class="label">${g.label}</div><div class="items">${list(g.items)}</div></div>`).join('') + `
+      <div class="row"><div class="label">${d.languages.heading}</div><div class="items">${list(d.languages.items.map(l => `<b>${l.name}</b> — ${l.level}`))}</div></div>`;
+
+    document.body.innerHTML = `
+      <header class="head">
+        <div>
+          <div class="kicker">${d.role}</div>
+          <h1>${parts.join(' ')} <em>${last}</em></h1>
+          <p class="tagline">${d.tagline}</p>
+          <div class="contact">
+            <a href="mailto:${d.email}">${d.email}</a>
+            <a href="${d.phoneHref}">${d.phone}</a>
+            <a href="${d.linkedin}">${d.linkedin.replace(/^https?:\/\//, '')}</a>
+            <a href="${site}">${siteLabel}</a>
+            <span>${d.location}</span>
+          </div>
+        </div>
+        <figure class="portrait">
+          <img src="../images/prof-pic.jpg" alt="">
+          <figcaption><b>Fig. 1</b></figcaption>
+        </figure>
+      </header>
+      <div class="facts">${d.facts.map(f => `<div><small>${f.label}</small><span>${f.value}</span></div>`).join('')}</div>
+      ${section(d.experience)}
+      <section><h2>${d.skills.heading}</h2>${skillRows}</section>
+      ${section(d.education)}
+      ${section(d.projects, 'compact')}
+      ${section(d.publications, 'pub')}
+      ${cards(d.certificates)}
+    `;
+    return Promise.all([...document.images].map(img => img.complete ? null : new Promise(r => { img.onload = img.onerror = r; })))
+      .then(() => document.fonts.ready);
+  };
+</script>
+</body>
+</html>
