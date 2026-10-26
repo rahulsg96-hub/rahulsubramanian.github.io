@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rahul Subramanian Girija — Materials Scientist</title>
-<meta name="description" content="Portfolio of Rahul Subramanian Girija, PhD — Materials Scientist specializing in aerospace materials, hydrogen embrittlement, and materials characterization.">
+<title>Rahul Subramanian Girija — Structural Modelling &amp; Simulation Engineer</title>
+<meta name="description" content="Portfolio of Rahul Subramanian Girija, PhD — structural modelling and simulation engineer in aerospace, with a background in materials science and AI-assisted FEA automation.">
 <meta name="theme-color" content="#F4F0E6">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,6 90,28 90,72 50,94 10,72 10,28' fill='%231C1B18'/%3E%3Cpolygon points='50,6 90,28 50,50 10,28' fill='%239C3D1F'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,6 +164,64 @@
     font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
   }
   .facts span{font-family:var(--serif);font-size:19px;line-height:1.3;}
+
+  /* ---------- Live analysis figure ---------- */
+  .fe-figure{margin-top:64px;}
+  .fe-head{
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 24px;
+    padding-bottom:12px;border-bottom:1px solid var(--ink);
+    font-family:var(--mono);font-size:12px;
+  }
+  .fe-label{letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+  .fe-log{color:var(--ink-soft);min-height:1.2em;}
+  .fe-stage{
+    background-color:#F8F5EE;
+    background-image:linear-gradient(rgba(28,27,24,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(28,27,24,.045) 1px, transparent 1px);
+    background-size:24px 24px;
+  }
+  #feCanvas{display:block;width:100%;height:320px;cursor:crosshair;touch-action:none;}
+  #feCanvas:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+  .fe-bar{
+    display:grid;grid-template-columns:minmax(300px, 360px) 1fr auto;align-items:end;gap:20px 40px;
+    padding:16px 0 18px;border-bottom:1px solid var(--rule);
+  }
+  .fe-key{
+    display:block;margin-bottom:8px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);
+  }
+  .fe-scale{display:flex;height:10px;}
+  .fe-scale span{flex:1;}
+  .fe-scale .beyond{margin-left:4px;}
+  .fe-ticks{position:relative;height:18px;margin-top:4px;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);}
+  .fe-ticks span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap;}
+  .fe-ticks span:first-child{transform:none;}
+  .fe-ticks .end, .fe-ticks .beyond{transform:translateX(-100%);}
+  .fe-readout{display:grid;grid-template-columns:repeat(4, auto);justify-content:center;gap:4px 26px;}
+  .fe-readout dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-faint);white-space:nowrap;}
+  .fe-readout dd{font-family:var(--serif);font-size:19px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .fe-readout dd.fail{color:var(--accent);font-weight:500;}
+  #feLoad{min-width:8.4em;} #feSmax{min-width:4.4em;} #feDmax{min-width:5em;} #feRf{min-width:3.4em;}
+  .fe-controls{display:flex;gap:8px;}
+  .fe-controls button{
+    background:none;border:1px solid var(--ink);color:var(--ink);cursor:pointer;
+    font-family:var(--mono);font-size:12px;padding:7px 12px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .fe-controls button:hover{border-color:var(--accent);color:var(--accent);}
+  .fe-controls button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+  .fe-controls button[aria-pressed="true"]:hover{background:var(--accent);border-color:var(--accent);color:var(--paper);}
+  .fe-figure figcaption{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--ink-faint);margin-top:12px;max-width:920px;}
+  .fe-figure figcaption b{color:var(--ink);font-weight:500;}
+  @media (max-width:1060px){
+    .fe-bar{grid-template-columns:1fr auto;}
+    .fe-legend{grid-column:1 / -1;}
+  }
+  @media (max-width:560px){
+    .fe-figure{margin-top:48px;}
+    .fe-bar{grid-template-columns:1fr;}
+    .fe-readout{grid-template-columns:repeat(2, auto);justify-content:start;gap:8px 28px;}
+    #feLoad{min-width:0;}
+  }
 
   /* ---------- Sections ---------- */
   .block{padding:96px 0;}
@@ -335,7 +393,7 @@
 
 <div class="wrap" id="top">
   <div class="masthead">
-    <span data-i18n="hero.eyebrow">Portfolio — Materials Science</span>
+    <span data-i18n="hero.eyebrow">Portfolio — Structures &amp; Materials</span>
     <span class="mid">Vol. 2026</span>
     <span>Paris, France</span>
   </div>
@@ -343,9 +401,9 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="kicker" data-i18n="hero.role">Materials Scientist — Aerospace R&amp;D</div>
+      <div class="kicker" data-i18n="hero.role">Structural Modelling &amp; Simulation Engineer — Paris</div>
       <h1>Rahul<br>Subramanian<br><em>Girija</em></h1>
-      <p class="lede" data-i18n="hero.tagline">I work at the boundary between microstructure and performance — characterizing, testing, and troubleshooting the materials that go into tier-1 aerospace hardware, from brazed heat exchangers to hydrogen-exposed stainless steels.</p>
+      <p class="lede" data-i18n="hero.tagline">I model how aerospace structures carry load — finite-element simulation in Abaqus, geometry in CATIA — on the foundation of a PhD in materials science. And I'm automating my FEA pipeline with Python and Claude Code.</p>
       <div class="actions">
         <a class="btn cv-link" href="files/Rahul_Subramanian_Girija_CV_EN.pdf" download="Rahul_Subramanian_Girija_CV_EN.pdf">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -357,16 +415,45 @@
     </div>
     <figure class="portrait">
       <img src="images/prof-pic.jpg" alt="Portrait of Rahul Subramanian Girija">
-      <figcaption data-i18n="hero.caption"><b>Fig. 1</b> — The author. PhD in Materials Science, I2M / CNRS, Bordeaux.</figcaption>
+      <figcaption data-i18n="hero.caption"><b>Fig. 1</b> — The author. Structural simulation engineer with a PhD in Materials Science (I2M / CNRS).</figcaption>
     </figure>
   </section>
 
   <div class="facts">
-    <div><small data-i18n="facts.l1">Specialism</small><span data-i18n="facts.v1">Hydrogen embrittlement</span></div>
-    <div><small data-i18n="facts.l2">Industry</small><span data-i18n="facts.v2">Tier-1 aerospace</span></div>
-    <div><small data-i18n="facts.l3">Methods</small><span data-i18n="facts.v3">SEM · EBSD · TEM · XRD</span></div>
-    <div><small data-i18n="facts.l4">Doctorate</small><span data-i18n="facts.v4">I2M / CNRS, Bordeaux</span></div>
+    <div><small data-i18n="facts.l1">Focus</small><span data-i18n="facts.v1">Structural FE simulation</span></div>
+    <div><small data-i18n="facts.l2">Tools</small><span data-i18n="facts.v2">Abaqus · CATIA · Python</span></div>
+    <div><small data-i18n="facts.l3">Automation</small><span data-i18n="facts.v3">AI-assisted FEA pipelines</span></div>
+    <div><small data-i18n="facts.l4">Doctorate</small><span data-i18n="facts.v4">Materials Science, I2M / CNRS</span></div>
   </div>
+
+  <!-- LIVE ANALYSIS -->
+  <figure class="fe-figure" id="ribFigure">
+    <div class="fe-head">
+      <span class="fe-label" data-i18n="fe.label">Live analysis</span>
+      <span class="fe-log" id="feLog" aria-live="polite"></span>
+    </div>
+    <div class="fe-stage">
+      <canvas id="feCanvas" tabindex="0" role="img" aria-label="Interactive finite-element analysis of a wing rib"></canvas>
+    </div>
+    <div class="fe-bar">
+      <div class="fe-legend">
+        <span class="fe-key" data-i18n="fe.legend">von Mises stress, MPa</span>
+        <div class="fe-scale" id="feScale"></div>
+        <div class="fe-ticks" id="feTicks"></div>
+      </div>
+      <dl class="fe-readout">
+        <div><dt data-i18n="fe.load">Load</dt><dd id="feLoad">—</dd></div>
+        <div><dt>σ<sub>vM</sub> max</dt><dd id="feSmax">—</dd></div>
+        <div><dt>δ max</dt><dd id="feDmax">—</dd></div>
+        <div><dt data-i18n="fe.rf">RF (yield)</dt><dd id="feRf">—</dd></div>
+      </dl>
+      <div class="fe-controls">
+        <button type="button" id="feMesh" aria-pressed="true" data-i18n="fe.mesh">Mesh</button>
+        <button type="button" id="feReset" data-i18n="fe.reset">Reset</button>
+      </div>
+    </div>
+    <figcaption data-i18n="fe.caption"><b>Fig. 2</b> — Wing rib: NACA 2418 profile, 600 mm chord, 1.6 mm aluminium 7075-T6 web, clamped at the front and rear spars. It is meshed and solved in your browser as you watch — plane-stress linear elasticity on linear triangles, banded Cholesky solver. Drag anywhere on the edge to apply a load. RF is the reserve factor against yield (σ<sub>y</sub> = 503 MPa); deformation is magnified.</figcaption>
+  </figure>
 </div>
 
 <main class="wrap">
@@ -384,9 +471,10 @@
         <div class="lang-item"><span class="name" data-i18n="about.lang2Name">French</span><span class="level" data-i18n="about.lang2Level">Full Professional</span></div>
       </div>
       <div class="about-text">
-        <p data-i18n="about.p1">I'm a materials scientist with a PhD and specialized expertise in advanced materials for aerospace applications.</p>
-        <p data-i18n="about.p2">My track record spans R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. Before that, my PhD work at I2M (CNRS) took a deep dive into hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration.</p>
+        <p data-i18n="about.p1">I'm a structural modelling and simulation engineer at Design Tech Centre in Paris, with a PhD in materials science and a background in aerospace materials R&amp;D.</p>
+        <p data-i18n="about.p2">Before moving into simulation, my work was hands-on: a PhD at I2M (CNRS) on hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration — followed by R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. That background shapes how I build, and question, a model.</p>
         <p data-i18n="about.p3">I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.</p>
+        <p data-i18n="about.p4">I also build with AI. I'm automating my FEA pipeline with Python and Claude Code, and this portfolio — including the live wing-rib analysis above — was built the same way.</p>
       </div>
     </div>
   </section>
@@ -424,6 +512,7 @@
         <span class="skill-tag" data-cat="characterization" data-i18n="skill.alicona">Alicona</span>
         <span class="skill-tag" data-cat="characterization" data-i18n="skill.keyence">Keyence</span>
         <!-- numerical -->
+        <span class="skill-tag" data-cat="numerical" data-i18n="skill.abaqus">Abaqus</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.oim">OIM Analysis</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.atex">ATEX</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.fem">FEM</span>
@@ -434,10 +523,13 @@
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.catia">CATIA</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.inventor">Autodesk Inventor</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.python">Python</span>
+        <span class="skill-tag" data-cat="numerical" data-i18n="skill.claudecode">Claude Code</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.matlab">MATLAB</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.magics">Materialise MAGICS</span>
         <span class="skill-tag" data-cat="numerical" data-i18n="skill.avizo">Avizo</span>
         <!-- domain -->
+        <span class="skill-tag" data-cat="domain" data-i18n="skill.structsim">Structural Simulation (FEA)</span>
+        <span class="skill-tag" data-cat="domain" data-i18n="skill.feaauto">FEA Automation</span>
         <span class="skill-tag" data-cat="domain" data-i18n="skill.materialsscience">Materials Science</span>
         <span class="skill-tag" data-cat="domain" data-i18n="skill.additive">Metal Additive Manufacturing</span>
         <span class="skill-tag" data-cat="domain" data-i18n="skill.fatigue">Fatigue of Metals</span>
@@ -472,6 +564,18 @@
       <span class="eyebrow" data-i18n="experience.eyebrow">§ 03 — Experience</span>
       <h2 data-i18n="experience.heading">Work experience</h2>
     </div>
+
+    <article class="row entry reveal">
+      <div class="when"><span data-i18n="exp0.dates">2026 — Present</span><br>Paris, France</div>
+      <div>
+        <h3>Structural Modelling and Simulation Engineer</h3>
+        <div class="org">Design Tech Centre — Paris</div>
+        <ul class="bullets">
+          <li data-i18n-html="exp0.b1"><strong>Structural modelling &amp; simulation:</strong> finite-element analysis of aerospace structures in Abaqus, working from CATIA geometry.</li>
+          <li data-i18n-html="exp0.b2"><strong>FEA automation:</strong> building an automated FEA pipeline with Python and Claude Code to cut the manual steps between modelling, solving, and post-processing.</li>
+        </ul>
+      </div>
+    </article>
 
     <article class="row entry reveal">
       <div class="when">04/2024 — 09/2026<br>Toulouse, France</div>
@@ -629,8 +733,8 @@
     <div class="row reveal">
       <span class="eyebrow" data-i18n="contact.eyebrow">§ 08 — Contact</span>
       <div>
-        <h2 data-i18n="contact.heading">Let's talk materials.</h2>
-        <p data-i18n="contact.paragraph">Open to conversations about aerospace materials, R&amp;D roles, or collaboration on characterization and hydrogen-embrittlement work. The fastest way to reach me is email.</p>
+        <h2 data-i18n="contact.heading">Let's talk structures.</h2>
+        <p data-i18n="contact.paragraph">Open to conversations about structural simulation, aerospace materials, or AI-assisted engineering workflows. The fastest way to reach me is email.</p>
         <a class="mail" href="mailto:rahulsg96@gmail.com">rahulsg96@gmail.com&nbsp;→</a>
         <div class="contact-meta">
           <a href="tel:+33767493412">+33 (0)7 67 49 34 12</a>
@@ -640,7 +744,7 @@
         </div>
       </div>
     </div>
-    <footer data-i18n="footer.text">© 2026 Rahul Subramanian Girija — Built with grain boundaries in mind.</footer>
+    <footer data-i18n="footer.text">© 2026 Rahul Subramanian Girija — Built with Claude Code, and grain boundaries in mind.</footer>
   </div>
 </section>
 
@@ -650,24 +754,29 @@
     en: {
       nav: { about:"About", skills:"Skills", experience:"Experience", education:"Education", projects:"Projects", publications:"Publications", contact:"Contact", menu:"MENU" },
       hero: {
-        eyebrow:"Portfolio — Materials Science",
-        role:"Materials Scientist — Aerospace R&amp;D",
-        tagline:"I work at the boundary between microstructure and performance — characterizing, testing, and troubleshooting the materials that go into tier-1 aerospace hardware, from brazed heat exchangers to hydrogen-exposed stainless steels.",
-        caption:"<b>Fig. 1</b> — The author. PhD in Materials Science, I2M / CNRS, Bordeaux.",
+        eyebrow:"Portfolio — Structures &amp; Materials",
+        role:"Structural Modelling &amp; Simulation Engineer — Paris",
+        tagline:"I model how aerospace structures carry load — finite-element simulation in Abaqus, geometry in CATIA — on the foundation of a PhD in materials science. And I'm automating my FEA pipeline with Python and Claude Code.",
+        caption:"<b>Fig. 1</b> — The author. Structural simulation engineer with a PhD in Materials Science (I2M / CNRS).",
         downloadCv:"Download CV (PDF)"
       },
       facts: {
-        l1:"Specialism", v1:"Hydrogen embrittlement",
-        l2:"Industry", v2:"Tier-1 aerospace",
-        l3:"Methods", v3:"SEM · EBSD · TEM · XRD",
-        l4:"Doctorate", v4:"I2M / CNRS, Bordeaux"
+        l1:"Focus", v1:"Structural FE simulation",
+        l2:"Tools", v2:"Abaqus · CATIA · Python",
+        l3:"Automation", v3:"AI-assisted FEA pipelines",
+        l4:"Doctorate", v4:"Materials Science, I2M / CNRS"
+      },
+      fe: {
+        label:"Live analysis", legend:"von Mises stress, MPa", load:"Load", rf:"RF (yield)", mesh:"Mesh", reset:"Reset",
+        caption:"<b>Fig. 2</b> — Wing rib: NACA 2418 profile, 600 mm chord, 1.6 mm aluminium 7075-T6 web, clamped at the front and rear spars. It is meshed and solved in your browser as you watch — plane-stress linear elasticity on linear triangles, banded Cholesky solver. Drag anywhere on the edge to apply a load. RF is the reserve factor against yield (σ<sub>y</sub> = 503 MPa); deformation is magnified."
       },
       about: {
         eyebrow:"§ 01 — About",
         heading:"Grounded in the microstructure, built for the application",
-        p1:"I'm a materials scientist with a PhD and specialized expertise in advanced materials for aerospace applications.",
-        p2:"My track record spans R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. Before that, my PhD work at I2M (CNRS) took a deep dive into hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration.",
+        p1:"I'm a structural modelling and simulation engineer at Design Tech Centre in Paris, with a PhD in materials science and a background in aerospace materials R&amp;D.",
+        p2:"Before moving into simulation, my work was hands-on: a PhD at I2M (CNRS) on hydrogen embrittlement in laser powder-bed-fusion stainless steels — coupling electrochemistry, mechanical testing, and microstructural analysis across a three-lab collaboration — followed by R&amp;D, process optimization, and materials characterization within a tier-1 aerospace supply chain. That background shapes how I build, and question, a model.",
         p3:"I like problems that sit at the intersection of process and property: why a joint fails, why a microstructure embrittles, why a fin geometry doesn't form the way the drawing says it should — and then finding the fix that actually ships.",
+        p4:"I also build with AI. I'm automating my FEA pipeline with Python and Claude Code, and this portfolio — including the live wing-rib analysis above — was built the same way.",
         langCardTitle:"Languages",
         lang1Name:"English", lang1Level:"Native / Bilingual",
         lang2Name:"French", lang2Level:"Full Professional"
@@ -680,11 +789,16 @@
       },
       skill: {
         microscopy:"Microscopy", sem:"SEM", tem:"TEM", xrd:"XRD", ebsd:"EBSD", eds:"EDS", tomography:"X-ray Tomography", afm:"AFM", tds:"TDS", gdoes:"GD-OES", mechtesting:"Mechanical Testing", alicona:"Alicona", keyence:"Keyence",
-        oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
-        materialsscience:"Materials Science", additive:"Metal Additive Manufacturing", fatigue:"Fatigue of Metals", corrosion:"Corrosion", tribology:"Tribology", hydrogen:"Hydrogen Embrittlement", heatexchangers:"Heat Exchangers", processopt:"Process Optimization", experimental:"Experimental Investigation", projectmgmt:"Project Management", supplierEval:"Supplier Evaluation", marketresearch:"Market Research", scientificresearch:"Scientific Research",
+        abaqus:"Abaqus", oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", claudecode:"Claude Code", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
+        structsim:"Structural Simulation (FEA)", feaauto:"FEA Automation", materialsscience:"Materials Science", additive:"Metal Additive Manufacturing", fatigue:"Fatigue of Metals", corrosion:"Corrosion", tribology:"Tribology", hydrogen:"Hydrogen Embrittlement", heatexchangers:"Heat Exchangers", processopt:"Process Optimization", experimental:"Experimental Investigation", projectmgmt:"Project Management", supplierEval:"Supplier Evaluation", marketresearch:"Market Research", scientificresearch:"Scientific Research",
         writing:"Scientific Writing", presentation:"Technical Presentation", problemsolving:"Problem Solving", teamwork:"Team Work", listening:"Listening", transparency:"Transparency", empathy:"Empathy", originpro:"Origin Pro", office365:"Office 365", latex:"LaTeX"
       },
       experience: { eyebrow:"§ 03 — Experience", heading:"Work experience" },
+      exp0: {
+        dates:"2026 — Present",
+        b1:"<strong>Structural modelling &amp; simulation:</strong> finite-element analysis of aerospace structures in Abaqus, working from CATIA geometry.",
+        b2:"<strong>FEA automation:</strong> building an automated FEA pipeline with Python and Claude Code to cut the manual steps between modelling, solving, and post-processing."
+      },
       exp1: {
         company:"Capgemini Engineering — embedded at Liebherr Aerospace Toulouse",
         meta:"Scientific Specialist, Materials &amp; Special Processes",
@@ -716,30 +830,35 @@
       certificates: { eyebrow:"§ 07 — Certifications", heading:"Certificates" },
       cert1: { desc:"Leadership development program offered by Capgemini in collaboration with Harvard Business Review." },
       cert2: { desc:"Beginner course on sustainability, systems thinking, eco-design, life-cycle analysis, and sustainable energy sources." },
-      contact: { eyebrow:"§ 08 — Contact", heading:"Let's talk materials.", paragraph:"Open to conversations about aerospace materials, R&amp;D roles, or collaboration on characterization and hydrogen-embrittlement work. The fastest way to reach me is email." },
-      footer: { text:"© 2026 Rahul Subramanian Girija — Built with grain boundaries in mind." }
+      contact: { eyebrow:"§ 08 — Contact", heading:"Let's talk structures.", paragraph:"Open to conversations about structural simulation, aerospace materials, or AI-assisted engineering workflows. The fastest way to reach me is email." },
+      footer: { text:"© 2026 Rahul Subramanian Girija — Built with Claude Code, and grain boundaries in mind." }
     },
     fr: {
       nav: { about:"À propos", skills:"Compétences", experience:"Expérience", education:"Formation", projects:"Projets", publications:"Publications", contact:"Contact", menu:"MENU" },
       hero: {
-        eyebrow:"Portfolio — Science des Matériaux",
-        role:"Scientifique des Matériaux — R&amp;D Aérospatiale",
-        tagline:"Je travaille à la frontière entre microstructure et performance — caractérisation, essais et résolution de problèmes sur les matériaux qui équipent les systèmes aérospatiaux de rang 1, des échangeurs de chaleur brasés aux aciers inoxydables exposés à l'hydrogène.",
-        caption:"<b>Fig. 1</b> — L'auteur. Docteur en science des matériaux, I2M / CNRS, Bordeaux.",
+        eyebrow:"Portfolio — Structures &amp; Matériaux",
+        role:"Structural Modelling &amp; Simulation Engineer — Paris",
+        tagline:"Je modélise la façon dont les structures aéronautiques reprennent les efforts — simulation par éléments finis sous Abaqus, géométrie sous CATIA — avec pour socle un doctorat en science des matériaux. Et j'automatise ma chaîne de calcul éléments finis avec Python et Claude Code.",
+        caption:"<b>Fig. 1</b> — L'auteur. Ingénieur en simulation des structures, docteur en science des matériaux (I2M / CNRS).",
         downloadCv:"Télécharger le CV (PDF)"
       },
       facts: {
-        l1:"Spécialité", v1:"Fragilisation par l'hydrogène",
-        l2:"Secteur", v2:"Aéronautique de rang 1",
-        l3:"Méthodes", v3:"MEB · EBSD · MET · DRX",
-        l4:"Doctorat", v4:"I2M / CNRS, Bordeaux"
+        l1:"Domaine", v1:"Simulation structurale EF",
+        l2:"Outils", v2:"Abaqus · CATIA · Python",
+        l3:"Automatisation", v3:"Chaînes de calcul EF assistées par IA",
+        l4:"Doctorat", v4:"Science des matériaux, I2M / CNRS"
+      },
+      fe: {
+        label:"Analyse en direct", legend:"Contrainte de von Mises, MPa", load:"Charge", rf:"RF (Rp0,2)", mesh:"Maillage", reset:"Réinitialiser",
+        caption:"<b>Fig. 2</b> — Nervure d'aile : profil NACA 2418, corde de 600 mm, âme en aluminium 7075-T6 de 1,6 mm, encastrée sur les longerons avant et arrière. Elle est maillée et résolue dans votre navigateur, sous vos yeux — élasticité linéaire en contraintes planes, triangles linéaires, solveur de Cholesky en bande. Faites glisser n'importe quel point du bord pour appliquer une charge. RF est le facteur de réserve vis-à-vis de la limite élastique (σ<sub>y</sub> = 503 MPa) ; la déformée est amplifiée."
       },
       about: {
         eyebrow:"§ 01 — À propos",
         heading:"Ancré dans la microstructure, pensé pour l'application",
-        p1:"Je suis scientifique des matériaux, titulaire d'un doctorat, avec une expertise spécialisée dans les matériaux avancés pour l'aérospatiale.",
-        p2:"Mon parcours couvre la R&amp;D, l'optimisation des procédés et la caractérisation des matériaux au sein d'une chaîne d'approvisionnement aéronautique de rang 1. Avant cela, ma thèse à l'I2M (CNRS) a porté en profondeur sur la fragilisation par l'hydrogène des aciers inoxydables fabriqués par fusion laser sur lit de poudre — combinant électrochimie, essais mécaniques et analyse microstructurale, en collaboration avec trois laboratoires.",
+        p1:"Je suis ingénieur en modélisation et simulation des structures au Design Tech Centre à Paris, titulaire d'un doctorat en science des matériaux, avec une expérience en R&amp;D matériaux aéronautique.",
+        p2:"Avant la simulation, mon travail était expérimental : une thèse à l'I2M (CNRS) sur la fragilisation par l'hydrogène des aciers inoxydables fabriqués par fusion laser sur lit de poudre — combinant électrochimie, essais mécaniques et analyse microstructurale, en collaboration avec trois laboratoires — puis de la R&amp;D, de l'optimisation des procédés et de la caractérisation des matériaux au sein d'une chaîne d'approvisionnement aéronautique de rang 1. Ce parcours influence la façon dont je construis — et remets en question — un modèle.",
         p3:"J'aime les problèmes situés à l'intersection du procédé et de la propriété : pourquoi un joint casse, pourquoi une microstructure se fragilise, pourquoi une géométrie d'ailette ne se forme pas comme prévu sur le plan — puis trouver la solution qui sera réellement mise en œuvre.",
+        p4:"Je construis aussi avec l'IA : j'automatise ma chaîne de calcul éléments finis avec Python et Claude Code, et ce portfolio — y compris l'analyse en direct de la nervure ci-dessus — a été réalisé de la même manière.",
         langCardTitle:"Langues",
         lang1Name:"Anglais", lang1Level:"Bilingue",
         lang2Name:"Français", lang2Level:"Maîtrise professionnelle complète"
@@ -752,11 +871,16 @@
       },
       skill: {
         microscopy:"Microscopie", sem:"MEB", tem:"MET", xrd:"DRX", ebsd:"EBSD", eds:"EDS", tomography:"Tomographie X", afm:"AFM", tds:"TDS", gdoes:"GD-OES", mechtesting:"Essais mécaniques", alicona:"Alicona", keyence:"Keyence",
-        oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
-        materialsscience:"Sciences des Matériaux", additive:"Fabrication Additive Métallique", fatigue:"Fatigue des Métaux", corrosion:"Corrosion", tribology:"Tribologie", hydrogen:"Fragilisation par l'Hydrogène", heatexchangers:"Échangeurs de Chaleur", processopt:"Optimisation des Procédés", experimental:"Étude Expérimentale", projectmgmt:"Gestion de Projet", supplierEval:"Évaluation de Fournisseurs", marketresearch:"Étude de Marché", scientificresearch:"Recherche Scientifique",
+        abaqus:"Abaqus", oim:"OIM Analysis", atex:"ATEX", fem:"FEM", zebulon:"Zebulon", meshlab:"Meshlab", gmsh:"Gmsh", autocad:"AutoCAD", catia:"CATIA", inventor:"Autodesk Inventor", python:"Python", claudecode:"Claude Code", matlab:"MATLAB", magics:"Materialise MAGICS", avizo:"Avizo",
+        structsim:"Simulation Structurale (EF)", feaauto:"Automatisation des Calculs EF", materialsscience:"Sciences des Matériaux", additive:"Fabrication Additive Métallique", fatigue:"Fatigue des Métaux", corrosion:"Corrosion", tribology:"Tribologie", hydrogen:"Fragilisation par l'Hydrogène", heatexchangers:"Échangeurs de Chaleur", processopt:"Optimisation des Procédés", experimental:"Étude Expérimentale", projectmgmt:"Gestion de Projet", supplierEval:"Évaluation de Fournisseurs", marketresearch:"Étude de Marché", scientificresearch:"Recherche Scientifique",
         writing:"Rédaction Scientifique", presentation:"Présentation Technique", problemsolving:"Résolution de Problèmes", teamwork:"Travail d'Équipe", listening:"Écoute Active", transparency:"Transparence", empathy:"Empathie", originpro:"Origin Pro", office365:"Office 365", latex:"LaTeX"
       },
       experience: { eyebrow:"§ 03 — Expérience", heading:"Expérience professionnelle" },
+      exp0: {
+        dates:"2026 — Aujourd'hui",
+        b1:"<strong>Modélisation et simulation des structures :</strong> analyses par éléments finis de structures aéronautiques sous Abaqus, à partir de la géométrie CATIA.",
+        b2:"<strong>Automatisation des calculs EF :</strong> développement d'une chaîne de calcul éléments finis automatisée avec Python et Claude Code, pour réduire les étapes manuelles entre modélisation, résolution et post-traitement."
+      },
       exp1: {
         company:"Capgemini Engineering — en mission chez Liebherr Aerospace Toulouse",
         meta:"Consultant Matériaux, Équipe Matériaux et Procédés Spéciaux",
@@ -788,8 +912,8 @@
       certificates: { eyebrow:"§ 07 — Certifications", heading:"Certifications" },
       cert1: { desc:"Programme de développement du leadership proposé par Capgemini en collaboration avec Harvard Business Review." },
       cert2: { desc:"Certification débutante en durabilité, pensée systémique, écoconception, analyse du cycle de vie et sources d'énergie durables." },
-      contact: { eyebrow:"§ 08 — Contact", heading:"Parlons matériaux.", paragraph:"Ouvert aux échanges sur les matériaux aérospatiaux, les postes en R&amp;D, ou une collaboration sur la caractérisation et la fragilisation par l'hydrogène. Le plus rapide pour me joindre reste l'email." },
-      footer: { text:"© 2026 Rahul Subramanian Girija — Conçu à l'image d'un joint de grains." }
+      contact: { eyebrow:"§ 08 — Contact", heading:"Parlons structures.", paragraph:"Ouvert aux échanges sur la simulation des structures, les matériaux aéronautiques ou les méthodes d'ingénierie assistées par IA. Le plus rapide pour me joindre reste l'email." },
+      footer: { text:"© 2026 Rahul Subramanian Girija — Réalisé avec Claude Code, à l'image d'un joint de grains." }
     }
   };
 
@@ -828,6 +952,7 @@
     });
 
     try{ localStorage.setItem('portfolio-lang', lang); }catch(e){}
+    document.dispatchEvent(new CustomEvent('portfolio:lang', { detail: lang }));
   }
 
   document.getElementById('langEnBtn').addEventListener('click', () => applyLanguage('en'));
@@ -904,6 +1029,7 @@
     revealEls.forEach(el => el.classList.add('in'));
   }
 </script>
+<script src="js/wing-rib.js"></script>
 
 </body>
 </html>
